@@ -1,3 +1,245 @@
+
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans:wght@200;300;700;800&display=swap');
+
+*:where(
+        :not(html, iframe, canvas, img, svg, video, audio):not(svg *, symbol *)
+    ) {
+    all: unset;
+    display: revert;
+}
+*,
+*::before,
+*::after {
+    box-sizing: border-box;
+}
+a,
+button {
+    cursor: revert;
+}
+ol,
+ul,
+menu {
+    list-style: none;
+}
+table {
+    border-collapse: collapse;
+}
+input,
+textarea {
+    -webkit-user-select: auto;
+}
+textarea {
+    white-space: revert;
+}
+meter {
+    -webkit-appearance: revert;
+    appearance: revert;
+}
+:where(pre) {
+    all: revert;
+}
+
+::placeholder {
+    color: unset;
+}
+::marker {
+    content: initial;
+}
+:where([hidden]) {
+    display: none;
+}
+:where([contenteditable]:not([contenteditable="false"])) {
+    -moz-user-modify: read-write;
+    -webkit-user-modify: read-write;
+    overflow-wrap: break-word;
+    -webkit-line-break: after-white-space;
+    -webkit-user-select: auto;
+}
+:where([draggable="true"]) {
+    -webkit-user-drag: element;
+}
+:where(dialog:modal) {
+    all: revert;
+}
+/*👉Above is resetting css👈*/
+/*👉Style guide👈*/
+:root {
+   --hunter-green: #386641ff;
+--asparagus: #6a994eff;
+--yellow-green: #a7c957ff;
+--parchment: #f2e8cfff;
+--bittersweet-shimmer: #bc4749ff;
+}
+* {
+    font-family: sans-serif, Arial;
+}
+title {
+    font-size: 20px;
+}
 h1 {
- color: red;
+    font-size: 18px;
+}
+h2 {
+    font-size: 16px;
+}
+h3 {
+    font-size: 14px;
+}
+p {
+    font-size: 14px;
+}
+body {
+    background-color: var(--parchment);
+}
+a {
+    text-decoration: underline;
+}
+figcaption {
+    font-size: 10px;
+}
+a:active {
+    font-size: 14px;
+}
+a:hover {
+    font-size: 14px;
+}
+
+body {
+ height: 100vh;
+ width: 100vw;
+ display: flex;
+ flex-direction: column;
+ 
+}
+/*👉Header👈*/
+body header {
+ height: 10%;
+display: flex;
+justify-content: space-between;
+ background-color: var(--yellow-green);
+ align-items: center;
+
+}
+.logo-container {
+ display: grid;
+ grid-template-columns: 1fr 3fr;
+ grid-template-rows: 2fr 1fr;
+ width: 210px;
+ align-items: center;
+ justify-content: center;
+ margin-left: 20px;
+
+
+}
+.logo-container a {
+ grid-row: 1/ span 2;
+ display: grid;
+ align-items: center;
+ justify-content: center;
+
+}
+.logo-container h4 {
+
+font-family: 'Noto Sans', sans-serif;
+font-weight: 800;
+ font-size: 1.5em;
+
+}
+.logo-container h5 {
+
+ grid-column: 2 / span 2;
+ letter-spacing: 0.04em;
+ font-family: 'Noto Sans', sans-serif;
+ text-indent: -10px;
+ margin-top: -5px;
+}
+.heart-logo {
+  background-color: var(--bittersweet-shimmer);
+  display: inline-block;
+  height: 30px;
+  margin: 0 10px;
+  position: relative;
+  top: 0;
+  transform: rotate(-45deg);
+  width: 30px;
+}
+
+.heart-logo:before,
+.heart-logo:after {
+  content: "";
+  background-color: var(--bittersweet-shimmer);
+  border-radius: 50%;
+  height: 30px;
+  position: absolute;
+  width: 30px;
+}
+
+.heart-logo:before {
+  top: -15px;
+  left: 0;
+}
+
+.heart-logo:after {
+  left: 15px;
+  top: 0;
+}
+/*👉 Header Nav 👈*/
+header nav {
+display: grid;
+grid-template-rows: 10vh 20vh;
+ z-index: 99;
+ align-self: start;
+ justify-content: center;
+}
+header button {
+    cursor: pointer;
+    justify-self: center;
+    border-radius: 16px;
+}
+header button span {
+    width: 40px;
+    height: 4px;
+    display: block;
+    background-color: black;
+    margin: 5px;
+    border-radius: 2px;
+/*👉    box-shadow: 2px 2px 5px 0px rgba(255, 255, 255, 0.3);
+    -webkit-box-shadow: 2px 2px 5px 0px rgba(255, 255, 255, 0.3);
+    -moz-box-shadow: 2px 2px 5px 0px rgba(255, 255, 255, 0.3);👈*/
+}
+
+header nav ul {
+ background-color: var(--yellow-green);
+ display: grid;
+ min-width: 120px;
+ text-align: center;
+ visibility: hidden;
+
+}
+header nav li {
+ display: flex;
+ justify-content: center;
+ align-items: center;
+
+}
+header nav li:hover {
+background-color: #bc4749ff;
+}
+.show-mobile-nav {
+    opacity: 1;
+    visibility: visible;
+}
+/*👉Section content👈*/
+body > main {
+ height: 80%;
+ background-color: var(--parchment)
+}
+/*👉Footer👈*/
+
+footer {
+ height: 10%;
+ background-color:var(--hunter-green);
+ display: flex;
+ align-items: center;
+ justify-content: space-evenly;
 }
