@@ -1,7 +1,6 @@
 const createHeader = () => {
-    const toggleNavDisplay = () => {
-        console.log("toggling");
-        console.log(navList.classList);
+    const toggleNavDisplay = (e) => {
+     e.stopPropagation()
         navList.classList.toggle("show-mobile-nav");
     };
     const header = document.getElementById("header-placeholder");
@@ -24,7 +23,7 @@ const createHeader = () => {
     const menuButton = document.createElement("button");
     menuButton.setAttribute("id", "menu-button");
     menuButton.setAttribute("title", "Open navigation links");
-    menuButton.addEventListener("click", toggleNavDisplay);
+    menuButton.addEventListener("click", (e) => toggleNavDisplay(e));
     for (let i = 0; i < 3; i += 1) {
         const hamburgerSpan = document.createElement("span");
         hamburgerSpan.addEventListener("click", toggleNavDisplay);
