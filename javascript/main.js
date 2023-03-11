@@ -7,7 +7,7 @@ const createHeader = () => {
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
     const heartHomeLink = document.createElement("a");
-    heartHomeLink.setAttribute("href", "../html/home.html");
+    heartHomeLink.setAttribute("href", "/index.html");
     const heartLogo = document.createElement("span");
     heartLogo.setAttribute("class", "heart-logo");
     heartHomeLink.appendChild(heartLogo);
@@ -34,16 +34,16 @@ const createHeader = () => {
     navList.setAttribute("class", "nav-list");
     const listItemHome = document.createElement("li");
     const listLinkHome = document.createElement("a");
-    listLinkHome.setAttribute("href", "../html/home.html");
+    listLinkHome.setAttribute("href", "/index.html");
     listLinkHome.appendChild(document.createTextNode("Home"));
     listItemHome.appendChild(listLinkHome);
     navList.appendChild(listItemHome);
-    const listItemProducts = document.createElement("li");
-    const listLinkProducts = document.createElement("a");
-    listLinkProducts.setAttribute("href", "../html/products.html");
-    listLinkProducts.appendChild(document.createTextNode("Products"));
-    listItemProducts.appendChild(listLinkProducts);
-    navList.appendChild(listItemProducts);
+    const listItemAbout = document.createElement("li");
+    const listLinkAbout = document.createElement("a");
+    listLinkAbout.setAttribute("href", "../html/about.html");
+    listLinkAbout.appendChild(document.createTextNode("About"));
+    listItemAbout.appendChild(listLinkAbout);
+    navList.appendChild(listItemAbout);
     const listItemSportsServices = document.createElement("li");
     const listLinkSportsServices = document.createElement("a");
     listLinkSportsServices.setAttribute("href", "../html/sportsservices.html");
@@ -52,6 +52,20 @@ const createHeader = () => {
     );
     listItemSportsServices.appendChild(listLinkSportsServices);
     navList.appendChild(listItemSportsServices);
+     const listItemForm = document.createElement("li");
+     const listLinkForm = document.createElement("a");
+     listLinkForm.setAttribute("href", "../html/form.html");
+     listLinkForm.appendChild(
+         document.createTextNode("Book an appointment")
+     );
+     listItemForm.appendChild(listLinkForm);
+     navList.appendChild(listItemForm);
+      const listItemPrivacy = document.createElement("li");
+      const listLinkPrivacy = document.createElement("a");
+      listLinkPrivacy.setAttribute("href", "../html/privacy.html");
+      listLinkPrivacy.appendChild(document.createTextNode("Privacy"));
+      listItemPrivacy.appendChild(listLinkPrivacy);
+      navList.appendChild(listItemPrivacy);
     navContainer.appendChild(navList);
     header.appendChild(navContainer);
 };
