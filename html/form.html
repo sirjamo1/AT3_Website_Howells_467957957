@@ -9,9 +9,62 @@
         <title>ML Strength</title>
     </head>
     <body>
-     <header></header>
-     <main><h1>Form</h1></main>
-     <footer></footer>
+        <header></header>
+        <main>
+            <section>
+                <article>
+                    <form action="">
+                        <label for="name">Name:</label>
+                        <input type="text" id="name" name="name" required />
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" name="email" required />
+                        <label for="age">Age:</label>
+                        <input type="number" id="age" age="age" required />
+                        <label for="dropdown">I'm interested in:</label>
+                        <select id="dropdown" name="dropdown">
+                            <option value="group fitness">Group fitness</option>
+                            <option value="personal training">
+                                Personal training
+                            </option>
+                        </select>
+                        <option value="circuit training">
+                            Circuit training
+                        </option>
+                        <option value="boxing">Boxing</option>
+                        <option value="karate">Karate</option>
+                        <fieldset>
+                            <legend>Gender:</legend>
+                            <input
+                                type="radio"
+                                id="male"
+                                name="gender"
+                                value="male"
+                            />
+                            <label for="male">Male</label><br />
+                            <input
+                                type="radio"
+                                id="female"
+                                name="gender"
+                                value="female"
+                            />
+                            <label for="female">Female</label><br />
+                            <input
+                                type="radio"
+                                id="other"
+                                name="gender"
+                                value="other"
+                            />
+                            <label for="other">Other</label><br />
+                        </fieldset>
+                        <label for="comments">Comments:</label>
+                        <textarea id="comments" name="comments"></textarea>
+                        <input type="button" value="Submit" />
+                        <input type="reset" value="Reset" />
+                    </form>
+                </article>
+            </section>
+        </main>
+        <footer></footer>
     </body>
     <script src="../javascript/main.js"></script>
 </html>

@@ -376,6 +376,14 @@ background-color: var(--yellow-green);
 .table-hidden {
    display: none;
 }
+/*👉Form👈*/
+form {
+    display: flex;
+    flex-direction: column;
+}
+input {
+    border: 1px solid black;
+}
 /*👉Footer👈*/
 
 footer {
