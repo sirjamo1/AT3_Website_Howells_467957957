@@ -54,7 +54,7 @@ const createHeader = () => {
     const listItemForm = document.createElement("li");
     const listLinkForm = document.createElement("a");
     listLinkForm.setAttribute("href", "../html/form.html");
-    listLinkForm.appendChild(document.createTextNode("Book an appointment"));
+    listLinkForm.appendChild(document.createTextNode("Contact us"));
     listItemForm.appendChild(listLinkForm);
     navList.appendChild(listItemForm);
     const listItemPrivacy = document.createElement("li");

@@ -132,7 +132,7 @@ section {
     align-items: center;
 }
 article {
-   /*👉 border: 1px solid pink;👈*/
+    /*👉 border: 1px solid pink;👈*/
     width: 90vw;
 }
 /*👉Header👈*/
@@ -162,6 +162,7 @@ body header {
     font-family: "Noto Sans", sans-serif;
     font-weight: 800;
     font-size: 1.1em;
+    padding-left: 2px;
     color: var(--hunter-green);
 }
 .logo-container h5 {
@@ -209,7 +210,7 @@ body header {
 /*👉 Header Nav 👈*/
 header nav {
     display: grid;
-    grid-template-rows: 10vh 25vh;
+    grid-template-rows: 10vh 35vh;
     z-index: 99;
     align-self: start;
     justify-content: center;
@@ -235,6 +236,8 @@ header nav ul {
     text-align: center;
     visibility: hidden;
     font-size: 14px;
+    opacity: 0;
+    transition: 0.2s ease-in;
 }
 header nav li a {
     width: 100%;
@@ -243,6 +246,7 @@ header nav li a {
     align-items: center;
     justify-content: center;
     color: black;
+    padding: 0px 15px;
 }
 header nav li a:hover {
     background-color: var(--bittersweet-shimmer);
@@ -288,7 +292,6 @@ header nav li a:hover {
 section#about-section {
     text-align: center;
 }
-
 section#about-section article {
     background-color: var(--asparagus);
     border-radius: 16px;
@@ -301,31 +304,25 @@ section#about-section article > p {
 }
 
 /*👉Classes👈*/
-#classes-section {
-}
 #classes-section article {
     background-color: var(--asparagus);
     padding: 6px;
     border-radius: 6px;
 }
 #classes-section article:nth-child(1) {
-    background-color:white;
+    background-color: white;
     padding: 0;
     height: 30%;
     display: flex;
     justify-content: space-evenly;
-    
-
 }
 #classes-section article:nth-child(1) nav {
     width: 100%;
-
 }
 #classes-section article:nth-child(1) ul {
     display: grid;
     justify-content: space-around;
     height: 100%;
-
 }
 .classes-button {
     background-color: var(--yellow-green);
@@ -336,14 +333,14 @@ section#about-section article > p {
     transition: all 0.5s;
 }
 .classes-button-selected {
-  transform: scale(120%);
-  background-color: var(--bittersweet-shimmer);
-  color: var(--parchment);
+    transform: scale(120%);
+    background-color: var(--bittersweet-shimmer);
+    color: var(--parchment);
 }
 .classes-button:hover {
-  transform: scale(120%);
-  background-color: var(--bittersweet-shimmer);
-  color: var(--parchment);
+    transform: scale(120%);
+    background-color: var(--bittersweet-shimmer);
+    color: var(--parchment);
 }
 
 #classes-section h3 {
@@ -351,20 +348,22 @@ section#about-section article > p {
     font-size: 1.5em;
 }
 #classes-section table {
-font-size: 0.8em;
-width: 100%;
-line-height: 24px;
+    font-size: 0.8em;
+    width: 100%;
+    line-height: 24px;
 }
 #classes-section thead {
     font-weight: 600;
-    background-color:  var(--parchment);
+    background-color: var(--parchment);
 }
-#classes-section table th:nth-child(1), td:nth-child(1) {
+#classes-section table th:nth-child(1),
+td:nth-child(1) {
     padding-left: 4px;
     width: 50%;
 }
+
 #classes-section table tr:nth-child(even) {
-background-color: var(--yellow-green);
+    background-color: var(--yellow-green);
 }
 #classes-section span {
     display: flex;
@@ -374,15 +373,154 @@ background-color: var(--yellow-green);
     padding-top: 6px;
 }
 .table-hidden {
-   display: none;
+    display: none;
+    animation: table-fade 2s forwards;
+    opacity: 0;
 }
 /*👉Form👈*/
 form {
     display: flex;
     flex-direction: column;
 }
-input {
-    border: 1px solid black;
+label,
+legend {
+    /*👉  display: inline-block;👈*/
+    width: 100px;
+    /*👉 text-align: right;👈*/
+    /*👉  margin-right: 10px;👈*/
+    /*👉  font-weight: bold;👈*/
+    display: none;
+}
+fieldset label {
+    display: inline-block;
+    /*👉   text-align: left;👈*/
+    padding-left: 10px;
+}
+fieldset {
+    display: flex;
+    text-align: center;
+    padding: 20px;
+}
+fieldset input[type="radio"] {
+    border: 1px solid var(--asparagus);
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background-color: blue;
+    accent-color: var(--bittersweet-shimmer);
+}
+input[type="text"],
+input[type="email"],
+input[type="number"],
+input[type="tel"],
+textarea,
+select {
+    display: block;
+    margin-bottom: 10px;
+    padding: 5px;
+    font-size: 16px;
+    width: 100%;
+    border: 1px solid var(--asparagus);
+    border-radius: 6px;
+    text-align: center;
+    color: black;
+}
+
+textarea {
+    text-align: left;
+    height: 150px;
+}
+input::placeholder,
+textarea::placeholder,
+option::placeholder {
+    color: var(--asparagus);
+    opacity: 0.7;
+}
+select:required:invalid {
+    color: var(--asparagus);
+    opacity: 0.7;
+}
+option[value=""][disabled] {
+    display: none;
+}
+option {
+    color: black;
+}
+
+.input-icons .fa-user,
+.fa-envelope {
+    position: absolute;
+    margin-top: 6px;
+    margin-left: 6px;
+    color: var(--asparagus);
+}
+.fa-mobile {
+    font-size: 25px;
+    position: absolute;
+    margin-top: 2px;
+    margin-left: 6px;
+    color: var(--asparagus);
+}
+
+.form-button-container {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+    gap: 20%;
+    text-align: center;
+}
+form button {
+    width: 80px;
+    height: 35px;
+    border-radius: 6px;
+}
+button[type="submit"] {
+    background-color: var(--asparagus);
+}
+button[type="reset"] {
+    background-color: var(--bittersweet-shimmer);
+}
+button[type="submit"]:hover {
+    background-color: green;
+}
+button[type="reset"]:hover {
+    background-color: red;
+}
+.privacy-question-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 20px;
+}
+.fa-question {
+    font-size: 30px;
+    border: 1px solid var(--asparagus);
+    width: 30px;
+    text-align: center;
+    color: var(--asparagus);
+    border-radius: 50%;
+}
+/*👉Privacy👈*/
+.privacy-section {
+    border: 1px solid;
+    padding: 10px;
+    overflow-y: scroll;
+    background-color: var(--parchment);
+    max-height: 80%;
+}
+.privacy-section h5,
+.privacy-section h1 {
+     padding: 10px;
+    text-align: center;
+    font-weight: 700;
+}
+.privacy-section p,
+.privacy-section li {
+    font-size: 0.8em;
+}
+.privacy-section ul {
+    list-style: circle;
+    list-style-position: inside;
 }
 /*👉Footer👈*/
 
@@ -461,5 +599,13 @@ footer {
     }
     100% {
         transform: scale(100%) rotate(-45deg);
+    }
+}
+@keyframes table-fade {
+    0% {
+        transform: scale(0%) opacity(0);
+    }
+    100% {
+        transform: scale(100%) opacity(1);
     }
 }

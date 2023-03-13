@@ -5,8 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Category: Gym health and fitness" />
-        <link rel="stylesheet" href="../css/style.css" />
+
         <title>ML Strength</title>
+        <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+        />
+        <link rel="stylesheet" href="../css/style.css" />
     </head>
     <body>
         <header></header>
@@ -14,24 +19,57 @@
             <section>
                 <article>
                     <form action="">
-                        <label for="name">Name:</label>
-                        <input type="text" id="name" name="name" required />
-                        <label for="email">Email:</label>
-                        <input type="email" id="email" name="email" required />
-                        <label for="age">Age:</label>
-                        <input type="number" id="age" age="age" required />
+                        <div class="input-icons">
+                            <label for="name">Name:</label>
+                            <i class="fa fa-user"></i>
+                            <input type="text" id="name" name="name" placeholder="Name" required />
+                        </div>
+                        <span class="error" id="name-error"></span>
+                        <div class="input-icons">
+                            <label for="email">Email:</label>
+                            <i class="fa fa-envelope"></i>
+                            <input
+                                type="email"
+                                id="email"
+                                name="email"
+                                placeholder="Email"
+                                required
+                            />
+                        </div>
+                        <div class="input-icons">
+                            <label for="mobile">Mobile:</label>
+                            <i class="fa fa-mobile"></i>
+                            <input
+                                type="tel"
+                                id="mobile"
+                                name="mobile"
+                                placeholder="Mobile"
+                                pattern="(04|\+614)[ ]?\d{4}[ ]?\d{4}"
+                                required
+                            />
+                        </div>
+                        <span class="error" id="email-error"></span>
+                        <div class="input-icons">
+                            <label for="age">Age:</label>
+                            <input type="number" id="age" age="age"
+                            placeholder="Age" required />
+                        </div>
+                        <span class="error" id="age-error"></span>
                         <label for="dropdown">I'm interested in:</label>
-                        <select id="dropdown" name="dropdown">
+                        <select id="dropdown" name="dropdown" required>
+                            <option value="" disabled selected hidden>I'm interested in...</option>
                             <option value="group fitness">Group fitness</option>
                             <option value="personal training">
                                 Personal training
                             </option>
+
+                            <option value="circuit training">
+                                Circuit training
+                            </option>
+                            <option value="boxing">Boxing</option>
+                            <option value="karate">Karate</option>
                         </select>
-                        <option value="circuit training">
-                            Circuit training
-                        </option>
-                        <option value="boxing">Boxing</option>
-                        <option value="karate">Karate</option>
+                        <span class="error" id="dropdown-error"></span><div>
                         <fieldset>
                             <legend>Gender:</legend>
                             <input
@@ -39,6 +77,7 @@
                                 id="male"
                                 name="gender"
                                 value="male"
+                                
                             />
                             <label for="male">Male</label><br />
                             <input
@@ -46,6 +85,7 @@
                                 id="female"
                                 name="gender"
                                 value="female"
+                                checked
                             />
                             <label for="female">Female</label><br />
                             <input
@@ -55,11 +95,21 @@
                                 value="other"
                             />
                             <label for="other">Other</label><br />
-                        </fieldset>
+                            <span class="error" id="gender-error"></span>
+                        </fieldset><label></div>
+                        
                         <label for="comments">Comments:</label>
-                        <textarea id="comments" name="comments"></textarea>
-                        <input type="button" value="Submit" />
-                        <input type="reset" value="Reset" />
+                        <textarea id="comments" name="comments" placeholder="Comments"></textarea>
+                        <span class="error" id="comments-error"></span>
+                        <div class="form-button-container">
+                        <button type="submit">Submit</button>
+                        <button type="reset">Reset</button>
+                        </div>
+                        <div class="privacy-question-container">
+                        <a>Privacy Policy</a>
+                        <i class="fa fa-question"></i>
+                        </div>
+                        
                     </form>
                 </article>
             </section>
