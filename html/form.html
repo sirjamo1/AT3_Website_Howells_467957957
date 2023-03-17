@@ -16,102 +16,117 @@
     <body>
         <header></header>
         <main>
-            <section>
-                <article>
-                    <form action="">
-                        <div class="input-icons">
-                            <label for="name">Name:</label>
-                            <i class="fa fa-user"></i>
-                            <input type="text" id="name" name="name" placeholder="Name" required />
-                        </div>
-                        <span class="error" id="name-error"></span>
-                        <div class="input-icons">
-                            <label for="email">Email:</label>
-                            <i class="fa fa-envelope"></i>
-                            <input
-                                type="email"
-                                id="email"
-                                name="email"
-                                placeholder="Email"
-                                required
-                            />
-                        </div>
-                        <div class="input-icons">
-                            <label for="mobile">Mobile:</label>
-                            <i class="fa fa-mobile"></i>
-                            <input
-                                type="tel"
-                                id="mobile"
-                                name="mobile"
-                                placeholder="Mobile"
-                                pattern="(04|\+614)[ ]?\d{4}[ ]?\d{4}"
-                                required
-                            />
-                        </div>
-                        <span class="error" id="email-error"></span>
-                        <div class="input-icons">
-                            <label for="age">Age:</label>
-                            <input type="number" id="age" age="age"
-                            placeholder="Age" required />
-                        </div>
-                        <span class="error" id="age-error"></span>
-                        <label for="dropdown">I'm interested in:</label>
-                        <select id="dropdown" name="dropdown" required>
-                            <option value="" disabled selected hidden>I'm interested in...</option>
-                            <option value="group fitness">Group fitness</option>
-                            <option value="personal training">
-                                Personal training
-                            </option>
+            <section class="form-section">
+                <form id="contact-form" action="">
+                    <div class="input-icons">
+                        <label for="name">Name:</label>
+                        <i class="fa fa-user"></i>
+                        <input
+                            type="text"
+                            id="name"
+                            name="name"
+                            placeholder="Name"
+                            required
+                        /><span></span>
+                    </div>
+                    <span class="error" id="name-error"></span>
+                    <div class="input-icons">
+                        <label for="email">Email:</label>
+                        <i class="fa fa-envelope"></i>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder="Email"
+                            required
+                        /><span></span>
+                    </div>
+                    <div class="input-icons">
+                        <label for="mobile">Mobile:</label>
+                        <i class="fa fa-mobile"></i>
+                        <input
+                            type="tel"
+                            id="mobile"
+                            name="mobile"
+                            placeholder="Mobile"
+                            pattern="(04|\+614)[ ]?\d{4}[ ]?\d{4}"
+                            required
+                        /><span></span>
+                    </div>
+                    <span class="error" id="email-error"></span>
+                    <div class="input-icons">
+                        <label for="age">Age:</label>
+                        <input
+                            type="number"
+                            id="age"
+                            age="age"
+                            placeholder="Age"
+                            required
+                        /><span></span>
+                    </div>
+                    <span class="error" id="age-error"></span>
+                    <label for="dropdown">I'm interested in:</label>
+                    <select id="dropdown" name="dropdown">
+                        <option value="" disabled selected hidden>
+                            I'm interested in...
+                        </option>
+                        <option value="group fitness">Group fitness</option>
+                        <option value="personal training">
+                            Personal training
+                        </option>
+                        <option value="circuit training">
+                            Circuit training
+                        </option>
+                        <option value="boxing">Boxing</option>
+                        <option value="karate">Karate</option>
+                    </select><span></span>
+                    <span class="error" id="dropdown-error"></span>
+                    <fieldset>
+                        <legend>Gender:</legend>
+                        <input
+                            type="radio"
+                            id="male"
+                            name="gender"
+                            value="male"
+                            checked
+                        />
+                        <label for="male">Male</label><br />
+                        <input
+                            type="radio"
+                            id="female"
+                            name="gender"
+                            value="female"
+                        />
+                        <label for="female">Female</label><br />
+                        <input
+                            type="radio"
+                            id="other"
+                            name="gender"
+                            value="other"
+                        />
+                        <label for="other">Other</label><br />
+                    </fieldset>
 
-                            <option value="circuit training">
-                                Circuit training
-                            </option>
-                            <option value="boxing">Boxing</option>
-                            <option value="karate">Karate</option>
-                        </select>
-                        <span class="error" id="dropdown-error"></span><div>
-                        <fieldset>
-                            <legend>Gender:</legend>
-                            <input
-                                type="radio"
-                                id="male"
-                                name="gender"
-                                value="male"
-                                
-                            />
-                            <label for="male">Male</label><br />
-                            <input
-                                type="radio"
-                                id="female"
-                                name="gender"
-                                value="female"
-                                checked
-                            />
-                            <label for="female">Female</label><br />
-                            <input
-                                type="radio"
-                                id="other"
-                                name="gender"
-                                value="other"
-                            />
-                            <label for="other">Other</label><br />
-                            <span class="error" id="gender-error"></span>
-                        </fieldset><label></div>
-                        
-                        <label for="comments">Comments:</label>
-                        <textarea id="comments" name="comments" placeholder="Comments"></textarea>
-                        <span class="error" id="comments-error"></span>
-                        <div class="form-button-container">
+                    <label for="comments">Comments:</label>
+                    <textarea
+                        id="comments"
+                        name="comments"
+                        placeholder="Comments"
+                    ></textarea>
+                    <span class="error" id="comments-error"></span>
+                    <div class="form-button-container">
                         <button type="submit">Submit</button>
                         <button type="reset">Reset</button>
-                        </div>
-                        <div class="privacy-question-container">
-                        <a>Privacy Policy</a>
-                        <i class="fa fa-question"></i>
-                        </div>
+                    </div>
+                    <div class="privacy-question-container">
+                        <a href="./privacy.html">Privacy Policy</a>
                         
-                    </form>
-                </article>
+                        <a class="form-link" href="#"><i class="fa fa-question"></i></a>
+                        <video class="form-help-video" width="320" height="240" controls><source src="" type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </form>
             </section>
         </main>
         <footer></footer>

@@ -3,8 +3,21 @@ const createHeader = () => {
         e.stopPropagation();
         navList.classList.toggle("show-mobile-nav");
     };
+    const toggleNavDumbbell = () => {
+        const currentPage = window.location.pathname;
+        let linkArr = [
+            listLinkHome,
+            listLinkAbout,
+            listLinkClasses,
+            listLinkForm,
+            listLinkPrivacy,
+        ];
+        linkArr.forEach((link) => {
+            if (currentPage === link.pathname)
+                link.classList.add("display-dumbbell");
+        });
+    };
     const header = document.getElementsByTagName("header")[0];
-    console.log(header);
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
     const heartHomeLink = document.createElement("a");
@@ -65,6 +78,7 @@ const createHeader = () => {
     navList.appendChild(listItemPrivacy);
     navContainer.appendChild(navList);
     header.appendChild(navContainer);
+    toggleNavDumbbell();
 };
 createHeader();
 
@@ -95,8 +109,35 @@ const showClassTable = (classesButtons, i) => {
     );
     tableContainer[0].classList.toggle("table-hidden");
 };
+function sanitizeString(str) {
+    return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
+}
+function sanitiseNumber(num) {
+    return num.replace(/[^0-9]/g, "");
+}
+const sanitiseInput = (form, e) => {
+    e.preventDefault();
+    const inputs = form.querySelectorAll("input, textarea, select");
+    inputs.forEach((input) => {
+        const value = input.value.trim();
+        console.log(value)
+        const sanitisedValue =
+            input.type === "number" || input.type === "tel"
+                ? sanitiseNumber(value)
+                : sanitizeString(value);
+                console.log(sanitisedValue)
+        input.value = sanitisedValue;
+    });
+    //form.submit();
+};
 
-const addEventToButtons = () => {
+const attachFormListener = () => {
+    const form = document.getElementById("contact-form");
+    if (!!form) form.addEventListener("submit", (e) => sanitiseInput(form, e));
+};
+
+attachFormListener();
+const addListenersToClassButtons = () => {
     const classesButtons = document.getElementsByClassName("classes-button");
     for (let i = 0; i < classesButtons.length; i += 1) {
         classesButtons[i].addEventListener("click", () =>
@@ -104,7 +145,7 @@ const addEventToButtons = () => {
         );
     }
 };
-addEventToButtons();
+addListenersToClassButtons();
 
 //Remove show-mobile-nav class (if it was open when resizing screen)
 window.addEventListener("resize", () => {
