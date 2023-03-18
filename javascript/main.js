@@ -60,7 +60,7 @@ const createHeader = () => {
     navList.appendChild(listItemAbout);
     const listItemClasses = document.createElement("li");
     const listLinkClasses = document.createElement("a");
-    listLinkClasses.setAttribute("href", "../html/classes.html");
+    listLinkClasses.setAttribute("href", "sirjamo1.github.io/html/classes.html");
     listLinkClasses.appendChild(document.createTextNode("Classes"));
     listItemClasses.appendChild(listLinkClasses);
     navList.appendChild(listItemClasses);
