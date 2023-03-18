@@ -5,13 +5,13 @@
         <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <meta name="description" content="Category: Gym health and fitness" />
-
-        <title>ML Strength</title>
         <link
             rel="stylesheet"
             href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
         />
         <link rel="stylesheet" href="../css/style.css" />
+        <title>ML Strength</title>
+        <link rel="icon" type="image/x-icon" href="../images/favicon.ico" />
     </head>
     <body>
         <header></header>
@@ -27,9 +27,12 @@
                             name="name"
                             placeholder="Name"
                             required
+                            maxlength="50"
+                            pattern="[a-zA-Z ]+"
+                            title="Please enter a valid name (only letters from a-Z and spaces allowed)"
                         /><span></span>
+                        <div class="error" id="name-error"></div>
                     </div>
-                    <span class="error" id="name-error"></span>
                     <div class="input-icons">
                         <label for="email">Email:</label>
                         <i class="fa fa-envelope"></i>
@@ -39,7 +42,10 @@
                             name="email"
                             placeholder="Email"
                             required
+                            maxlength="50"
+                            title="Please enter a valid email address"
                         /><span></span>
+                        <div class="error" id="email-error"></div>
                     </div>
                     <div class="input-icons">
                         <label for="mobile">Mobile:</label>
@@ -51,9 +57,10 @@
                             placeholder="Mobile"
                             pattern="(04|\+614)[ ]?\d{4}[ ]?\d{4}"
                             required
+                            title="Please enter a valid Australian mobile number (e.g. 0412345678 or +61412345678)"
                         /><span></span>
+                        <div class="error" id="mobile-error"></div>
                     </div>
-                    <span class="error" id="email-error"></span>
                     <div class="input-icons">
                         <label for="age">Age:</label>
                         <input
@@ -61,28 +68,47 @@
                             id="age"
                             age="age"
                             placeholder="Age"
+                            min="12"
+                            max="116"
                             required
+                            title="Please enter a valid age between 12 and 116"
                         /><span></span>
+                        <div class="error" id="age-error"></div>
                     </div>
-                    <span class="error" id="age-error"></span>
-                    <label for="dropdown">I'm interested in:</label>
-                    <select id="dropdown" name="dropdown">
-                        <option value="" disabled selected hidden>
-                            I'm interested in...
-                        </option>
-                        <option value="group fitness">Group fitness</option>
-                        <option value="personal training">
-                            Personal training
-                        </option>
-                        <option value="circuit training">
-                            Circuit training
-                        </option>
-                        <option value="boxing">Boxing</option>
-                        <option value="karate">Karate</option>
-                    </select><span></span>
-                    <span class="error" id="dropdown-error"></span>
+                    <div class="input-icons">
+                        <label for="postcode">Postcode:</label>
+                        <input
+                            type="text"
+                            id="postcode"
+                            name="postcode"
+                            placeholder="Postcode"
+                            required
+                            maxlength="4"
+                            pattern="[0-9]{4}"
+                            title="Please enter a valid Australian postcode (4 digits)"
+                        /><span></span>
+                        <div class="error" id="postcode-error"></div>
+                    </div>
+                    <div>
+                        <label for="dropdown">I'm interested in:</label>
+                        <select id="dropdown" name="dropdown">
+                            <option value="" disabled selected hidden>
+                                I'm interested in...
+                            </option>
+                            <option value="group fitness">Group fitness</option>
+                            <option value="personal training">
+                                Personal training
+                            </option>
+                            <option value="circuit training">
+                                Circuit training
+                            </option>
+                            <option value="boxing">Boxing</option>
+                            <option value="karate">Karate</option></select
+                        ><span></span>
+                        <div class="error" id="dropdown-error"></div>
+                    </div>
                     <fieldset>
-                        <legend>Gender:</legend>
+                        <legend>Gender</legend>
                         <input
                             type="radio"
                             id="male"
@@ -90,39 +116,51 @@
                             value="male"
                             checked
                         />
-                        <label for="male">Male</label><br />
+                        <label for="male">Male</label>
                         <input
                             type="radio"
                             id="female"
                             name="gender"
                             value="female"
                         />
-                        <label for="female">Female</label><br />
+                        <label for="female">Female</label>
                         <input
                             type="radio"
                             id="other"
                             name="gender"
                             value="other"
                         />
-                        <label for="other">Other</label><br />
+                        <label for="other">Other</label>
                     </fieldset>
+                    <div>
+                        <label for="comments">Comments:</label>
+                        <textarea
+                            id="comments"
+                            name="comments"
+                            placeholder="Comments"
+                            maxlength="150"
+                            title="Please shorten your comment (maximum letter count is 150)"
+                        ></textarea>
+                        <div class="error" id="comments-error"></div>
+                    </div>
 
-                    <label for="comments">Comments:</label>
-                    <textarea
-                        id="comments"
-                        name="comments"
-                        placeholder="Comments"
-                    ></textarea>
-                    <span class="error" id="comments-error"></span>
                     <div class="form-button-container">
                         <button type="submit">Submit</button>
                         <button type="reset">Reset</button>
                     </div>
                     <div class="privacy-question-container">
                         <a href="./privacy.html">Privacy Policy</a>
-                        
-                        <a class="form-link" href="#"><i class="fa fa-question"></i></a>
-                        <video class="form-help-video" width="320" height="240" controls><source src="" type="video/mp4">
+
+                        <a class="form-link" href="#"
+                            ><i class="fa fa-question"></i
+                        ></a>
+                        <video
+                            class="form-help-video"
+                            width="320"
+                            height="240"
+                            controls
+                        >
+                            <source src="" type="video/mp4" />
                             Your browser does not support the video tag.
                         </video>
                     </div>

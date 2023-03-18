@@ -109,7 +109,7 @@ const showClassTable = (classesButtons, i) => {
     );
     tableContainer[0].classList.toggle("table-hidden");
 };
-function sanitizeString(str) {
+function sanitiseString(str) {
     return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
 function sanitiseNumber(num) {
@@ -120,15 +120,15 @@ const sanitiseInput = (form, e) => {
     const inputs = form.querySelectorAll("input, textarea, select");
     inputs.forEach((input) => {
         const value = input.value.trim();
-        console.log(value)
         const sanitisedValue =
-            input.type === "number" || input.type === "tel"
+            input.type === "number" ||
+            input.type === "tel" ||
+            input.type === "postcode"
                 ? sanitiseNumber(value)
-                : sanitizeString(value);
-                console.log(sanitisedValue)
+                : sanitiseString(value);
         input.value = sanitisedValue;
     });
-    //form.submit();
+    form.submit();
 };
 
 const attachFormListener = () => {
