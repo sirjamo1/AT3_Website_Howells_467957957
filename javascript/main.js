@@ -54,7 +54,7 @@ const createHeader = () => {
     navList.appendChild(listItemHome);
     const listItemAbout = document.createElement("li");
     const listLinkAbout = document.createElement("a");
-    listLinkAbout.setAttribute("href", "../html/about.html");
+    listLinkAbout.setAttribute("href", "https://sirjamo1.github.io/html/about.html");
     listLinkAbout.appendChild(document.createTextNode("About"));
     listItemAbout.appendChild(listLinkAbout);
     navList.appendChild(listItemAbout);
@@ -66,7 +66,7 @@ const createHeader = () => {
     navList.appendChild(listItemClasses);
     const listItemForm = document.createElement("li");
     const listLinkForm = document.createElement("a");
-    listLinkForm.setAttribute("href", "../html/form.html");
+    listLinkForm.setAttribute("href", ".../html/form.html");
     listLinkForm.appendChild(document.createTextNode("Contact us"));
     listItemForm.appendChild(listLinkForm);
     navList.appendChild(listItemForm);
