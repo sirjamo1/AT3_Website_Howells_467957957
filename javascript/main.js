@@ -1,3 +1,4 @@
+const hostName = window.location.hostName;
 const createHeader = () => {
     const toggleNavDisplay = (e) => {
         e.stopPropagation();
@@ -23,7 +24,11 @@ const createHeader = () => {
     const heartHomeLink = document.createElement("a");
     heartHomeLink.setAttribute(
         "href",
-        "/AT3_Website_Howells_467957957/index.html"
+        `${
+            hostName === "sirjamo1.github.io"
+                ? "/AT3_Website_Howells_467957957/index.html"
+                : "/index.html"
+        }`
     );
     const heartLogo = document.createElement("span");
     heartLogo.setAttribute("class", "heart-logo");
@@ -53,7 +58,11 @@ const createHeader = () => {
     const listLinkHome = document.createElement("a");
     listLinkHome.setAttribute(
         "href",
-        "/AT3_Website_Howells_467957957/index.html"
+        `${
+            hostName === "sirjamo1.github.io"
+                ? "/AT3_Website_Howells_467957957/index.html"
+                : "/index.html"
+        }`
     );
     listLinkHome.appendChild(document.createTextNode("Home"));
     listItemHome.appendChild(listLinkHome);
@@ -62,7 +71,11 @@ const createHeader = () => {
     const listLinkAbout = document.createElement("a");
     listLinkAbout.setAttribute(
         "href",
-        "/AT3_Website_Howells_467957957/html/about.html"
+        `${
+            hostName === "sirjamo1.github.io"
+                ? "/AT3_Website_Howells_467957957/html/about.html"
+                : "../html/about.html"
+        }`
     );
     listLinkAbout.appendChild(document.createTextNode("About"));
     listItemAbout.appendChild(listLinkAbout);
@@ -71,7 +84,11 @@ const createHeader = () => {
     const listLinkClasses = document.createElement("a");
     listLinkClasses.setAttribute(
         "href",
-        "/AT3_Website_Howells_467957957/html/classes.html"
+        `${
+            hostName === "sirjamo1.github.io"
+                ? "/AT3_Website_Howells_467957957/html/classes.html"
+                : "../html/classes.html"
+        }`
     );
     listLinkClasses.appendChild(document.createTextNode("Classes"));
     listItemClasses.appendChild(listLinkClasses);
@@ -80,7 +97,11 @@ const createHeader = () => {
     const listLinkForm = document.createElement("a");
     listLinkForm.setAttribute(
         "href",
-        "/AT3_Website_Howells_467957957/html/form.html"
+        `${
+            hostName === "sirjamo1.github.io"
+                ? "/AT3_Website_Howells_467957957/html/form.html"
+                : "../html/form.html"
+        }`
     );
     listLinkForm.appendChild(document.createTextNode("Contact us"));
     listItemForm.appendChild(listLinkForm);
@@ -89,7 +110,11 @@ const createHeader = () => {
     const listLinkPrivacy = document.createElement("a");
     listLinkPrivacy.setAttribute(
         "href",
-        "/AT3_Website_Howells_467957957/html/privacy.html"
+        `${
+            hostName === "sirjamo1.github.io"
+                ? "/AT3_Website_Howells_467957957/html/privacy.html"
+                : "../html/privacy.html"
+        }`
     );
     listLinkPrivacy.appendChild(document.createTextNode("Privacy"));
     listItemPrivacy.appendChild(listLinkPrivacy);
@@ -124,7 +149,7 @@ const createFooter = () => {
 
     w3AALink.appendChild(w3AAImage);
     leftContainer.appendChild(w3AALink);
-    footerContainer.appendChild(leftContainer)
+    footerContainer.appendChild(leftContainer);
     const rightContainer = document.createElement("div");
     const githubLink = document.createElement("a");
     githubLink.setAttribute(
@@ -135,11 +160,15 @@ const createFooter = () => {
     const githubLogo = document.createElement("img");
     githubLogo.setAttribute(
         "src",
-        "/AT3_Website_Howells_467957957/images/github-mark-white.png"
+        `${
+            hostName === "sirjamo1.github.io"
+                ? "/AT3_Website_Howells_467957957/images/github-mark-white.png"
+                : "../images/github-mark-white.png"
+        }`
     );
     githubLogo.setAttribute("alt", "Github logo");
     githubLink.appendChild(githubLogo);
-    githubLogo.setAttribute("height", "32")
+    githubLogo.setAttribute("height", "32");
     githubLogo.setAttribute("width", "32");
     rightContainer.appendChild(githubLink);
     const developerText = document.createElement("p");
