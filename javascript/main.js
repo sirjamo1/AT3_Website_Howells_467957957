@@ -21,7 +21,10 @@ const createHeader = () => {
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
     const heartHomeLink = document.createElement("a");
-    heartHomeLink.setAttribute("href", "/index.html");
+    heartHomeLink.setAttribute(
+        "href",
+        "/AT3_Website_Howells_467957957/index.html"
+    );
     const heartLogo = document.createElement("span");
     heartLogo.setAttribute("class", "heart-logo");
     heartHomeLink.appendChild(heartLogo);
@@ -54,7 +57,10 @@ const createHeader = () => {
     navList.appendChild(listItemHome);
     const listItemAbout = document.createElement("li");
     const listLinkAbout = document.createElement("a");
-    listLinkAbout.setAttribute("href", "../html/about.html");
+    listLinkAbout.setAttribute(
+        "href",
+        "/AT3_Website_Howells_467957957/about.html"
+    );
     listLinkAbout.appendChild(document.createTextNode("About"));
     listItemAbout.appendChild(listLinkAbout);
     navList.appendChild(listItemAbout);
@@ -127,27 +133,6 @@ const createFooter = () => {
     );
     rightContainer.appendChild(developerText);
     footerContainer.appendChild(rightContainer);
-
-    //NEED TO ADD IN FOOTER
-    // <a
-    //     href="https://www.w3.org/WAI/WCAG2AA-Conformance"
-    //     title="Explanation of WCAG 2 Level AA conformance"
-    // >
-    //     <img
-    //         height="32"
-    //         width="88"
-    //         src="https://www.w3.org/WAI/WCAG21/wcag2.1AA-v"
-    //         alt="Level AA conformance,
-    //         W3C WAI Web Content Accessibility Guidelines 2.1"
-    //     />{" "}
-    // </a>;
-
-    // <a
-    //     href="https://github.com/sirjamo1/AT3_Website_Howells_467957957-"
-    //     target="_blank"
-    // >
-    //     <img src="./images/github-mark-white.png" alt="github logo" />
-    // </a>;
 };
 createFooter();
 const showClassTable = (classesButtons, i) => {
