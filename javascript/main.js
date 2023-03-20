@@ -1,4 +1,3 @@
-const hostName = window.location.hostName;
 const createHeader = () => {
     const toggleNavDisplay = (e) => {
         e.stopPropagation();
@@ -25,7 +24,7 @@ const createHeader = () => {
     heartHomeLink.setAttribute(
         "href",
         `${
-            hostName === "sirjamo1.github.io"
+            window.location.hostName === "sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/index.html"
                 : "/index.html"
         }`
@@ -59,7 +58,7 @@ const createHeader = () => {
     listLinkHome.setAttribute(
         "href",
         `${
-            hostName === "sirjamo1.github.io"
+            window.location.hostName === "sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/index.html"
                 : "/index.html"
         }`
@@ -72,7 +71,7 @@ const createHeader = () => {
     listLinkAbout.setAttribute(
         "href",
         `${
-            hostName === "sirjamo1.github.io"
+            window.location.hostName === "sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/about.html"
                 : "../html/about.html"
         }`
@@ -85,7 +84,7 @@ const createHeader = () => {
     listLinkClasses.setAttribute(
         "href",
         `${
-            hostName === "sirjamo1.github.io"
+            window.location.hostName === "sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/classes.html"
                 : "../html/classes.html"
         }`
@@ -98,7 +97,7 @@ const createHeader = () => {
     listLinkForm.setAttribute(
         "href",
         `${
-            hostName === "sirjamo1.github.io"
+            window.location.hostName === "sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/form.html"
                 : "../html/form.html"
         }`
@@ -111,7 +110,7 @@ const createHeader = () => {
     listLinkPrivacy.setAttribute(
         "href",
         `${
-            hostName === "sirjamo1.github.io"
+            window.location.hostName === "sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/privacy.html"
                 : "../html/privacy.html"
         }`
@@ -161,7 +160,7 @@ const createFooter = () => {
     githubLogo.setAttribute(
         "src",
         `${
-            hostName === "sirjamo1.github.io"
+            window.location.hostName === "sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/images/github-mark-white.png"
                 : "../images/github-mark-white.png"
         }`

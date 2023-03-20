@@ -455,8 +455,8 @@ section#about-section {
 section#about-section article {
     background-color: var(--asparagus-opacity);
     border-radius: 6px;
-    margin-top: 10%;
-    padding: 10px;
+    /*👉margin-top: 10%;👈*/
+   /*👉 padding: 10px;👈*/
 }
 /*👉section#about-section header > h1 {
     padding-top: 10px;
@@ -673,6 +673,7 @@ form button {
     width: 80px;
     height: 35px;
     border-radius: 6px;
+    box-shadow: 0px 5px 10px 0px rgba(0, 0, 0, 0.5);
 }
 button[type="submit"] {
     background-color: var(--asparagus);
@@ -682,9 +683,11 @@ button[type="reset"] {
 }
 button[type="submit"]:hover {
     background-color: green;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
 }
 button[type="reset"]:hover {
     background-color: red;
+    box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
 }
 
 .privacy-question-container {
@@ -694,7 +697,7 @@ button[type="reset"]:hover {
     margin-top: 20px;
     padding: 20px;
 }
-.privacy-question-container > a {
+.privacy-question-container > a:first-child {
     background-color: var(--parchment-opacity);
     padding: 6px;
     border-radius: 6px;
@@ -709,6 +712,9 @@ button[type="reset"]:hover {
     border-radius: 50%;
     background-color: var(--parchment-opacity);
     cursor: pointer;
+}
+.fa-question:hover {
+    background-color: var(--parchment);
 }
 .form-help-video {
     position: absolute;
@@ -924,14 +930,13 @@ footer img {
         top: 28px;
     }
     /*👉Footer👈*/
-  
-footer p {
-    font-size: 16px;
-}
-footer img {
-    max-width: 70px;
-   
-}
+
+    footer p {
+        font-size: 16px;
+    }
+    footer img {
+        max-width: 70px;
+    }
 }
 @media screen and (min-width: 750px) {
     /*👉Header👈*/
