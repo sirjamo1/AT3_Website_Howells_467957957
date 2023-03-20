@@ -133,7 +133,10 @@ const createFooter = () => {
     );
     githubLink.setAttribute("target", "_blank");
     const githubLogo = document.createElement("img");
-    githubLogo.setAttribute("src", "./images/github-mark-white.png");
+    githubLogo.setAttribute(
+        "src",
+        "/AT3_Website_Howells_467957957/images/github-mark-white.png"
+    );
     githubLogo.setAttribute("alt", "Github logo");
     githubLink.appendChild(githubLogo);
     githubLogo.setAttribute("height", "32")
