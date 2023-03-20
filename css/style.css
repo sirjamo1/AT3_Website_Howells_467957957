@@ -757,12 +757,26 @@ section#privacy-section {
 footer {
     height: 10%;
     background-color: var(--hunter-green);
-    display: flex;
-    align-items: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     justify-content: space-evenly;
-    color: var(--parchment);
+
+    color: white;
 }
 
+footer div {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 4px;
+}
+footer p {
+    font-size: 10px;
+}
+footer img {
+    max-width: 50px;
+    height: auto;
+}
 @media screen and (min-width: 500px) {
     h1 {
         font-size: 2em;
@@ -910,6 +924,14 @@ footer {
         top: 28px;
     }
     /*👉Footer👈*/
+  
+footer p {
+    font-size: 16px;
+}
+footer img {
+    max-width: 70px;
+   
+}
 }
 @media screen and (min-width: 750px) {
     /*👉Header👈*/

@@ -84,15 +84,70 @@ createHeader();
 
 const createFooter = () => {
     const footerContainer = document.getElementsByTagName("footer")[0];
+    const leftContainer = document.createElement("div");
     const companyText = document.createElement("p");
     companyText.innerHTML = `ML Strength &copy ${new Date().getFullYear()}`;
-    footerContainer.appendChild(companyText);
-    const rightSection = document.createElement("section");
+    leftContainer.appendChild(companyText);
+    const w3AALink = document.createElement("a");
+    w3AALink.setAttribute("href", "https://www.w3.org/WAI/WCAG2AA-Conformance");
+    w3AALink.setAttribute(
+        "title",
+        "Explanation of WCAG 2 Level AA conformance"
+    );
+    w3AALink.setAttribute("target", "_blank");
+    const w3AAImage = document.createElement("img");
+    w3AAImage.setAttribute("height", "32");
+    w3AAImage.setAttribute("width", "88");
+    w3AAImage.setAttribute("src", "https://www.w3.org/WAI/WCAG21/wcag2.1AA-v");
+    w3AAImage.setAttribute(
+        "alt",
+        "Level AA conformance, W3C WAI Web Content Accessibility Guidelines 2.1"
+    );
+
+    w3AALink.appendChild(w3AAImage);
+    leftContainer.appendChild(w3AALink);
+    footerContainer.appendChild(leftContainer)
+    const rightContainer = document.createElement("div");
+    const githubLink = document.createElement("a");
+    githubLink.setAttribute(
+        "href",
+        "https://github.com/sirjamo1/AT3_Website_Howells_467957957-"
+    );
+    githubLink.setAttribute("target", "_blank");
+    const githubLogo = document.createElement("img");
+    githubLogo.setAttribute("src", "./images/github-mark-white.png");
+    githubLogo.setAttribute("alt", "Github logo");
+    githubLink.appendChild(githubLogo);
+    githubLogo.setAttribute("height", "32")
+    githubLogo.setAttribute("width", "32");
+    rightContainer.appendChild(githubLink);
     const developerText = document.createElement("p");
     developerText.appendChild(
         document.createTextNode("James Howells #467957957")
     );
-    footerContainer.appendChild(developerText);
+    rightContainer.appendChild(developerText);
+    footerContainer.appendChild(rightContainer);
+
+    //NEED TO ADD IN FOOTER
+    // <a
+    //     href="https://www.w3.org/WAI/WCAG2AA-Conformance"
+    //     title="Explanation of WCAG 2 Level AA conformance"
+    // >
+    //     <img
+    //         height="32"
+    //         width="88"
+    //         src="https://www.w3.org/WAI/WCAG21/wcag2.1AA-v"
+    //         alt="Level AA conformance,
+    //         W3C WAI Web Content Accessibility Guidelines 2.1"
+    //     />{" "}
+    // </a>;
+
+    // <a
+    //     href="https://github.com/sirjamo1/AT3_Website_Howells_467957957-"
+    //     target="_blank"
+    // >
+    //     <img src="./images/github-mark-white.png" alt="github logo" />
+    // </a>;
 };
 createFooter();
 const showClassTable = (classesButtons, i) => {
