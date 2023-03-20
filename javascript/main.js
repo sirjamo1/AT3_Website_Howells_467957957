@@ -53,7 +53,7 @@ const createHeader = () => {
     const listLinkHome = document.createElement("a");
     listLinkHome.setAttribute(
         "href",
-        "/AT3_Website_Howells_467957957/html/index.html"
+        "/AT3_Website_Howells_467957957/index.html"
     );
     listLinkHome.appendChild(document.createTextNode("Home"));
     listItemHome.appendChild(listLinkHome);
