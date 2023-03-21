@@ -1,3 +1,4 @@
+const desktopHelpVideo = "../videos/screen-capture-desktop.mp4";
 
 const createHeader = () => {
     const toggleNavDisplay = (e) => {
@@ -122,12 +123,10 @@ const createHeader = () => {
     navContainer.appendChild(navList);
     header.appendChild(navContainer);
     toggleNavDumbbell();
-    
 };
 createHeader();
 
 const createFooter = () => {
-    
     const footerContainer = document.getElementsByTagName("footer")[0];
     const leftContainer = document.createElement("div");
     const companyText = document.createElement("p");
@@ -179,7 +178,6 @@ const createFooter = () => {
     );
     rightContainer.appendChild(developerText);
     footerContainer.appendChild(rightContainer);
-    
 };
 createFooter();
 const showClassTable = (classesButtons, i) => {
@@ -233,16 +231,23 @@ const addListenersToClassButtons = () => {
     }
 };
 addListenersToClassButtons();
-const changePathsForGhPages = () => {
-    console.log(window.location.origin);
-    // if (window.location.origin === "https://sirjamo1.github.io") {
-    //     console.log("github")
-        const navList = document.getElementsByClassName("nav-list");
+const changeFormHelpVideo = () => {
+    const formHelpVideo = document.getElementsByClassName("form-help-video");
+    const formVideoSource = document.getElementById("form-video-source");
+    formVideoSource.setAttribute(
+        "src",
+        `${
+            screen.width > 500
+                ? "../videos/screen-capture-desktop.mp4"
+                : "../videos/screen-capture-mobile.mp4"
+        }`
+    );
+    //NEED to CHANGE width and height according to screen
+    formHelpVideo[0].load();
+};
+const formQuestionLink = document.getElementsByClassName("form-link");
+formQuestionLink[0].addEventListener("mouseover", () => changeFormHelpVideo());
 
-   // }
-}
-
-changePathsForGhPages()
 //Remove show-mobile-nav class (if it was open when resizing screen)
 window.addEventListener("resize", () => {
     const navList = document.getElementsByClassName("nav-list");

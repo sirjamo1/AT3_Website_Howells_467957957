@@ -630,6 +630,9 @@ textarea {
     text-align: left;
     height: 150px;
 }
+label[for="comments"] {
+    margin-top: 20px;
+}
 input::placeholder,
 textarea::placeholder {
     color: var(--asparagus);
@@ -698,8 +701,8 @@ button[type="reset"]:hover {
     background-color: var(--parchment-opacity);
     padding: 6px;
     border-radius: 6px;
+    text-align: center;
 }
-
 .fa-question {
     font-size: 30px;
     border: 1px solid var(--asparagus);
@@ -712,6 +715,7 @@ button[type="reset"]:hover {
 }
 .fa-question:hover {
     background-color: var(--parchment);
+    box-shadow: 0px 5px 10px 0px var(--parchment-opacity);
 }
 .form-help-video {
     position: absolute;
@@ -763,7 +767,6 @@ footer {
     display: grid;
     grid-template-columns: 1fr 1fr;
     justify-content: space-evenly;
-
     color: white;
 }
 
@@ -779,6 +782,11 @@ footer p {
 footer img {
     max-width: 50px;
     height: auto;
+}
+footer img:last-child:hover {
+    background-color: var(--parchment-opacity);
+    border-radius: 50%;
+
 }
 @media screen and (min-width: 500px) {
     h1 {
@@ -812,6 +820,7 @@ footer img {
         height: 100%;
         font-size: 0.7em;
         border-radius: 16px;
+        
     }
     /*👉Home👈*/
     .large-logo-container {
