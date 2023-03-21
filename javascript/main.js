@@ -1,3 +1,4 @@
+
 const createHeader = () => {
     const toggleNavDisplay = (e) => {
         e.stopPropagation();
@@ -24,7 +25,7 @@ const createHeader = () => {
     heartHomeLink.setAttribute(
         "href",
         `${
-            window.location.hostName === "sirjamo1.github.io"
+            window.location.origin === "https://sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/index.html"
                 : "/index.html"
         }`
@@ -58,7 +59,7 @@ const createHeader = () => {
     listLinkHome.setAttribute(
         "href",
         `${
-            window.location.hostName === "sirjamo1.github.io"
+            window.location.origin === "https://sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/index.html"
                 : "/index.html"
         }`
@@ -71,7 +72,7 @@ const createHeader = () => {
     listLinkAbout.setAttribute(
         "href",
         `${
-            window.location.hostName === "sirjamo1.github.io"
+            window.location.origin === "https://sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/about.html"
                 : "../html/about.html"
         }`
@@ -84,7 +85,7 @@ const createHeader = () => {
     listLinkClasses.setAttribute(
         "href",
         `${
-            window.location.hostName === "sirjamo1.github.io"
+            window.location.origin === "https://sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/classes.html"
                 : "../html/classes.html"
         }`
@@ -97,7 +98,7 @@ const createHeader = () => {
     listLinkForm.setAttribute(
         "href",
         `${
-            window.location.hostName === "sirjamo1.github.io"
+            window.location.origin === "https://sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/form.html"
                 : "../html/form.html"
         }`
@@ -110,7 +111,7 @@ const createHeader = () => {
     listLinkPrivacy.setAttribute(
         "href",
         `${
-            window.location.hostName === "sirjamo1.github.io"
+            window.location.origin === "https://sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/html/privacy.html"
                 : "../html/privacy.html"
         }`
@@ -121,10 +122,12 @@ const createHeader = () => {
     navContainer.appendChild(navList);
     header.appendChild(navContainer);
     toggleNavDumbbell();
+    
 };
 createHeader();
 
 const createFooter = () => {
+    
     const footerContainer = document.getElementsByTagName("footer")[0];
     const leftContainer = document.createElement("div");
     const companyText = document.createElement("p");
@@ -153,14 +156,14 @@ const createFooter = () => {
     const githubLink = document.createElement("a");
     githubLink.setAttribute(
         "href",
-        "https://github.com/sirjamo1/AT3_Website_Howells_467957957-"
+        "https://github.com/sirjamo1/AT3_Website_Howells_467957957"
     );
     githubLink.setAttribute("target", "_blank");
     const githubLogo = document.createElement("img");
     githubLogo.setAttribute(
         "src",
         `${
-            window.location.hostName === "sirjamo1.github.io"
+            window.location.origin === "https://sirjamo1.github.io"
                 ? "/AT3_Website_Howells_467957957/images/github-mark-white.png"
                 : "../images/github-mark-white.png"
         }`
@@ -176,6 +179,7 @@ const createFooter = () => {
     );
     rightContainer.appendChild(developerText);
     footerContainer.appendChild(rightContainer);
+    
 };
 createFooter();
 const showClassTable = (classesButtons, i) => {
@@ -229,7 +233,16 @@ const addListenersToClassButtons = () => {
     }
 };
 addListenersToClassButtons();
+const changePathsForGhPages = () => {
+    console.log(window.location.origin);
+    // if (window.location.origin === "https://sirjamo1.github.io") {
+    //     console.log("github")
+        const navList = document.getElementsByClassName("nav-list");
 
+   // }
+}
+
+changePathsForGhPages()
 //Remove show-mobile-nav class (if it was open when resizing screen)
 window.addEventListener("resize", () => {
     const navList = document.getElementsByClassName("nav-list");
