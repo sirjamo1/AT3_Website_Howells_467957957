@@ -719,9 +719,13 @@ button[type="reset"]:hover {
 }
 .form-help-video {
     position: absolute;
-    top: 50%;
+    top: 45%;
     left: 50%;
     transform: translate(-50%, -50%);
+    height: 60%;
+    border: 3px solid var(--asparagus);
+    border-radius: 6px;
+    background-color: var(--parchment);
     display: none;
 }
 .form-link:hover + .form-help-video {

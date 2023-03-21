@@ -242,7 +242,6 @@ const changeFormHelpVideo = () => {
                 : "../videos/screen-capture-mobile.mp4"
         }`
     );
-    //NEED to CHANGE width and height according to screen
     formHelpVideo[0].load();
 };
 const formQuestionLink = document.getElementsByClassName("form-link");
