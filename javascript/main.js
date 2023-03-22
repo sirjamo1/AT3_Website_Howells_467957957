@@ -1,5 +1,3 @@
-const desktopHelpVideo = "../videos/screen-capture-desktop.mp4";
-
 const createHeader = () => {
     const toggleNavDisplay = (e) => {
         e.stopPropagation();
@@ -7,13 +5,7 @@ const createHeader = () => {
     };
     const toggleNavDumbbell = () => {
         const currentPage = window.location.pathname;
-        let linkArr = [
-            listLinkHome,
-            listLinkAbout,
-            listLinkClasses,
-            listLinkForm,
-            listLinkPrivacy,
-        ];
+        let linkArr = [homeLink, aboutLink, classesLink, formLink, privacyLink];
         linkArr.forEach((link) => {
             if (currentPage === link.pathname)
                 link.classList.add("display-dumbbell");
@@ -22,8 +14,8 @@ const createHeader = () => {
     const header = document.getElementsByTagName("header")[0];
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
-    const heartHomeLink = document.createElement("a");
-    heartHomeLink.setAttribute(
+    const homeLinkHeart = document.createElement("a");
+    homeLinkHeart.setAttribute(
         "href",
         `${
             window.location.origin === "https://sirjamo1.github.io"
@@ -33,8 +25,8 @@ const createHeader = () => {
     );
     const heartLogo = document.createElement("span");
     heartLogo.setAttribute("class", "heart-logo");
-    heartHomeLink.appendChild(heartLogo);
-    logoContainer.appendChild(heartHomeLink);
+    homeLinkHeart.appendChild(heartLogo);
+    logoContainer.appendChild(homeLinkHeart);
     const logoTitle = document.createElement("h4");
     logoTitle.appendChild(document.createTextNode("ML Strength"));
     logoContainer.appendChild(logoTitle);
@@ -56,8 +48,8 @@ const createHeader = () => {
     const navList = document.createElement("ul");
     navList.setAttribute("class", "nav-list");
     const listItemHome = document.createElement("li");
-    const listLinkHome = document.createElement("a");
-    listLinkHome.setAttribute(
+    const homeLink = document.createElement("a");
+    homeLink.setAttribute(
         "href",
         `${
             window.location.origin === "https://sirjamo1.github.io"
@@ -65,12 +57,12 @@ const createHeader = () => {
                 : "/index.html"
         }`
     );
-    listLinkHome.appendChild(document.createTextNode("Home"));
-    listItemHome.appendChild(listLinkHome);
+    homeLink.appendChild(document.createTextNode("Home"));
+    listItemHome.appendChild(homeLink);
     navList.appendChild(listItemHome);
     const listItemAbout = document.createElement("li");
-    const listLinkAbout = document.createElement("a");
-    listLinkAbout.setAttribute(
+    const aboutLink = document.createElement("a");
+    aboutLink.setAttribute(
         "href",
         `${
             window.location.origin === "https://sirjamo1.github.io"
@@ -78,12 +70,12 @@ const createHeader = () => {
                 : "../html/about.html"
         }`
     );
-    listLinkAbout.appendChild(document.createTextNode("About"));
-    listItemAbout.appendChild(listLinkAbout);
+    aboutLink.appendChild(document.createTextNode("About"));
+    listItemAbout.appendChild(aboutLink);
     navList.appendChild(listItemAbout);
     const listItemClasses = document.createElement("li");
-    const listLinkClasses = document.createElement("a");
-    listLinkClasses.setAttribute(
+    const classesLink = document.createElement("a");
+    classesLink.setAttribute(
         "href",
         `${
             window.location.origin === "https://sirjamo1.github.io"
@@ -91,12 +83,12 @@ const createHeader = () => {
                 : "../html/classes.html"
         }`
     );
-    listLinkClasses.appendChild(document.createTextNode("Classes"));
-    listItemClasses.appendChild(listLinkClasses);
+    classesLink.appendChild(document.createTextNode("Classes"));
+    listItemClasses.appendChild(classesLink);
     navList.appendChild(listItemClasses);
     const listItemForm = document.createElement("li");
-    const listLinkForm = document.createElement("a");
-    listLinkForm.setAttribute(
+    const formLink = document.createElement("a");
+    formLink.setAttribute(
         "href",
         `${
             window.location.origin === "https://sirjamo1.github.io"
@@ -104,12 +96,12 @@ const createHeader = () => {
                 : "../html/form.html"
         }`
     );
-    listLinkForm.appendChild(document.createTextNode("Contact us"));
-    listItemForm.appendChild(listLinkForm);
+    formLink.appendChild(document.createTextNode("Contact us"));
+    listItemForm.appendChild(formLink);
     navList.appendChild(listItemForm);
     const listItemPrivacy = document.createElement("li");
-    const listLinkPrivacy = document.createElement("a");
-    listLinkPrivacy.setAttribute(
+    const privacyLink = document.createElement("a");
+    privacyLink.setAttribute(
         "href",
         `${
             window.location.origin === "https://sirjamo1.github.io"
@@ -117,8 +109,8 @@ const createHeader = () => {
                 : "../html/privacy.html"
         }`
     );
-    listLinkPrivacy.appendChild(document.createTextNode("Privacy"));
-    listItemPrivacy.appendChild(listLinkPrivacy);
+    privacyLink.appendChild(document.createTextNode("Privacy"));
+    listItemPrivacy.appendChild(privacyLink);
     navList.appendChild(listItemPrivacy);
     navContainer.appendChild(navList);
     header.appendChild(navContainer);
@@ -180,20 +172,30 @@ const createFooter = () => {
     footerContainer.appendChild(rightContainer);
 };
 createFooter();
+
 const showClassTable = (classesButtons, i) => {
     for (let j = 0; j < classesButtons.length; j += 1) {
         classesButtons[j].classList.remove("classes-button-selected");
-        const tableToAddClass = document.getElementsByClassName(
+        const tableToRemoveClass = document.getElementsByClassName(
             `${classesButtons[j].id}-container`
         );
-        tableToAddClass[0].classList.add("table-hidden");
+        tableToRemoveClass[0].classList.remove("show-classes-table");
     }
     classesButtons[i].classList.add("classes-button-selected");
     const tableContainer = document.getElementsByClassName(
         `${classesButtons[i].id}-container`
     );
-    tableContainer[0].classList.toggle("table-hidden");
+    tableContainer[0].classList.toggle("show-classes-table");
 };
+const addListenersToClassButtons = () => {
+    const classesButtons = document.getElementsByClassName("classes-button");
+    for (let i = 0; i < classesButtons.length; i += 1) {
+        classesButtons[i].addEventListener("click", () =>
+            showClassTable(classesButtons, i)
+        );
+    }
+};
+
 function sanitiseString(str) {
     return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
 }
@@ -222,14 +224,7 @@ const attachFormListener = () => {
 };
 
 attachFormListener();
-const addListenersToClassButtons = () => {
-    const classesButtons = document.getElementsByClassName("classes-button");
-    for (let i = 0; i < classesButtons.length; i += 1) {
-        classesButtons[i].addEventListener("click", () =>
-            showClassTable(classesButtons, i)
-        );
-    }
-};
+
 addListenersToClassButtons();
 const changeFormHelpVideo = () => {
     const formHelpVideo = document.getElementsByClassName("form-help-video");
