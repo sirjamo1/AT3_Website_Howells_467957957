@@ -40,7 +40,7 @@ const createHeader = () => {
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
     const homeLinkHeart = document.createElement("a");
-    console.log(window.location.origin);
+    console.log(window.location.origin)
     homeLinkHeart.setAttribute(
         "href",
         `${
@@ -76,18 +76,19 @@ const createHeader = () => {
     pageDetails.forEach((page) => {
         const list = document.createElement("li");
         const navLink = document.createElement("a");
-        const hrefPath =
-            window.location.origin === "https://sirjamo1.github.io"
-                ? page.githubLink
-                : page.localPath;
-
-        navLink.setAttribute("href", hrefPath);
+        navLink.setAttribute(
+            "href",
+            `${
+                window.location.origin === "https://sirjamo1.github.io"
+                    ? page.ghPagesPath
+                    : page.localPath
+            }`
+        );
+        
         navLink.appendChild(document.createTextNode(`${page.title}`));
-        const pagePathName = window.location.pathname;
-        console.log(pagePathName)
         if (
-            pagePathName === page.githubLink ||
-            pagePathName === page.localPath
+            window.location.pathname === page.ghPagesPath ||
+            window.location.pathname === page.localPath
         ) {
             navLink.setAttribute("class", "display-dumbbell");
         }
