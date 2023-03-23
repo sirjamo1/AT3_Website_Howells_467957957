@@ -40,7 +40,7 @@ const createHeader = () => {
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
     const homeLinkHeart = document.createElement("a");
-    console.log(window.location.origin)
+    console.log(window.location.origin);
     homeLinkHeart.setAttribute(
         "href",
         `${
@@ -76,15 +76,13 @@ const createHeader = () => {
     pageDetails.forEach((page) => {
         const list = document.createElement("li");
         const navLink = document.createElement("a");
-        console.log(page.ghPagesPath)
-        navLink.setAttribute(
-            "href", page.ghPagesPath
-            // `${
-            //     window.location.origin === "https://sirjamo1.github.io"
-            //         ? page.githubLink
-            //         : page.localPath
-            // }`
-        );
+        console.log(page.ghPagesPath);
+        const hrefPath =
+            window.location.origin === "https://sirjamo1.github.io"
+                ? page.githubLink
+                : page.localPath;
+
+        navLink.setAttribute("href", hrefPath);
 
         navLink.appendChild(document.createTextNode(`${page.title}`));
         if (
