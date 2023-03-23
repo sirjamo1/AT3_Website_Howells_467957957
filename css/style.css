@@ -101,7 +101,6 @@ a {
 }
 button {
     cursor: pointer;
-
 }
 figcaption {
     font-size: 10px;
@@ -157,6 +156,10 @@ body > header {
     justify-content: space-between;
     background-color: var(--yellow-green);
     align-items: center;
+    box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px 4px 7px 0px rgba(0, 0, 0, 0.75);
+    z-index: 98;
 }
 .logo-container {
     display: grid;
@@ -223,11 +226,13 @@ body > header {
 /*👉 Header Nav 👈*/
 body > header nav {
     display: grid;
-    grid-template-rows: 10vh 35vh;
+    grid-template-rows: 10vh 30vh;
     z-index: 99;
     align-self: start;
     justify-content: center;
+    width: 97px;
 }
+
 body > header button {
     justify-self: center;
     border-radius: 16px;
@@ -243,10 +248,10 @@ body > header button span {
 
 body > header nav ul {
     background-color: var(--yellow-green);
-    display: grid;
+    display: none;
     max-width: 130px;
     text-align: center;
-   /*👉 visibility: hidden;👈*/
+     visibility: hidden;
     font-size: 14px;
     opacity: 0;
     transition: 0.2s ease-in;
@@ -323,8 +328,10 @@ body > header nav li a:hover {
     );
 }
 .show-mobile-nav {
-    opacity: 1;
+   /*👉 opacity: 1;👈*/
     visibility: visible;
+    display: grid;
+     animation: change-opacity 1s forwards;
 }
 .display-dumbbell {
     background-color: var(--bittersweet-shimmer);
@@ -471,6 +478,7 @@ body > header nav li a:hover {
 }
 #about-section article h2 {
     padding-top: 10px;
+    font-size: 1.2em;
 }
 
 #about-section article > p {
@@ -504,9 +512,9 @@ section#classes-section {
 #classes-section h1 {
     background-color: var(--parchment);
     border-radius: 6px;
-    margin-bottom: 20px;
-    margin-top: 10px;
+    margin: 10px 0px 20px 0px;
     font-size: 1.4em;
+    padding: 5px 15px;
     color: var(--bittersweet-shimmer);
     box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
     -webkit-box-shadow: 10px 10px 5px 0px rgba(0, 0, 0, 0.75);
@@ -526,7 +534,6 @@ section#classes-section {
     border-radius: 6px;
     min-width: 120px;
     height: 30px;
-    text-align: center;
     transition: all 0.5s;
     box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
 }
@@ -545,6 +552,7 @@ section#classes-section {
 
 #classes-section h2 {
     padding: 5px;
+    font-size: 1.2em;
     text-shadow: 4px 2px 2px rgba(0, 0, 0, 0.15);
 }
 .classes-table-container {
@@ -783,7 +791,7 @@ section#privacy-section {
 }
 #privacy-section p,
 #privacy-section li {
-    font-size: 0.8em;
+  /*👉  font-size: 0.9em;👈*/
 }
 #privacy-section ul {
     list-style: circle;
@@ -802,6 +810,9 @@ footer {
     grid-template-columns: 1fr 1fr;
     justify-content: space-evenly;
     color: white;
+    box-shadow: 0px -4px 4px 0px rgba(0,0,0,0.75);
+-webkit-box-shadow: 0px -4px 4px 0px rgba(0,0,0,0.75);
+-moz-box-shadow: 0px -4px 4px 0px rgba(0,0,0,0.75);
 }
 
 footer div {
@@ -832,6 +843,7 @@ footer div:last-child img:hover {
     }
     body > header nav {
         height: 100%;
+        width: auto;
     }
     body > header nav ul {
         display: flex;
