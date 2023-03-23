@@ -1,15 +1,40 @@
+const pageDetails = [
+    {
+        title: "Home",
+        localPath: "/index.html",
+        ghPagesPath: "/AT3_Website_Howells_467957957/index.html",
+    },
+    {
+        title: "About",
+        localPath: "/html/about.html",
+        ghPagesPath: "/AT3_Website_Howells_467957957/html/about.html",
+    },
+    {
+        title: "Classes",
+        localPath: "/html/classes.html",
+        ghPagesPath: "/AT3_Website_Howells_467957957/html/classes.html",
+    },
+    {
+        title: "Contact us",
+        localPath: "/html/form.html",
+        ghPagesPath: "/AT3_Website_Howells_467957957/html/form.html",
+    },
+    {
+        title: "Privacy",
+        localPath: "/html/privacy.html",
+        ghPagesPath: "/AT3_Website_Howells_467957957/html/privacy.html",
+    },
+];
+
+const hideNav = () => {
+    const navList = document.querySelector(".nav-list");
+    if (navList.classList.contains("show-mobile-nav"))
+        navList.classList.remove("show-mobile-nav");
+};
 const createHeader = () => {
     const toggleNavDisplay = (e) => {
         e.stopPropagation();
         navList.classList.toggle("show-mobile-nav");
-    };
-    const toggleNavDumbbell = () => {
-        const currentPage = window.location.pathname;
-        let linkArr = [homeLink, aboutLink, classesLink, formLink, privacyLink];
-        linkArr.forEach((link) => {
-            if (currentPage === link.pathname)
-                link.classList.add("display-dumbbell");
-        });
     };
     const header = document.getElementsByTagName("header")[0];
     const logoContainer = document.createElement("article");
@@ -47,74 +72,30 @@ const createHeader = () => {
     navContainer.appendChild(menuButton);
     const navList = document.createElement("ul");
     navList.setAttribute("class", "nav-list");
-    const listItemHome = document.createElement("li");
-    const homeLink = document.createElement("a");
-    homeLink.setAttribute(
-        "href",
-        `${
-            window.location.origin === "https://sirjamo1.github.io"
-                ? "/AT3_Website_Howells_467957957/index.html"
-                : "/index.html"
-        }`
-    );
-    homeLink.appendChild(document.createTextNode("Home"));
-    listItemHome.appendChild(homeLink);
-    navList.appendChild(listItemHome);
-    const listItemAbout = document.createElement("li");
-    const aboutLink = document.createElement("a");
-    aboutLink.setAttribute(
-        "href",
-        `${
-            window.location.origin === "https://sirjamo1.github.io"
-                ? "/AT3_Website_Howells_467957957/html/about.html"
-                : "../html/about.html"
-        }`
-    );
-    aboutLink.appendChild(document.createTextNode("About"));
-    listItemAbout.appendChild(aboutLink);
-    navList.appendChild(listItemAbout);
-    const listItemClasses = document.createElement("li");
-    const classesLink = document.createElement("a");
-    classesLink.setAttribute(
-        "href",
-        `${
-            window.location.origin === "https://sirjamo1.github.io"
-                ? "/AT3_Website_Howells_467957957/html/classes.html"
-                : "../html/classes.html"
-        }`
-    );
-    classesLink.appendChild(document.createTextNode("Classes"));
-    listItemClasses.appendChild(classesLink);
-    navList.appendChild(listItemClasses);
-    const listItemForm = document.createElement("li");
-    const formLink = document.createElement("a");
-    formLink.setAttribute(
-        "href",
-        `${
-            window.location.origin === "https://sirjamo1.github.io"
-                ? "/AT3_Website_Howells_467957957/html/form.html"
-                : "../html/form.html"
-        }`
-    );
-    formLink.appendChild(document.createTextNode("Contact us"));
-    listItemForm.appendChild(formLink);
-    navList.appendChild(listItemForm);
-    const listItemPrivacy = document.createElement("li");
-    const privacyLink = document.createElement("a");
-    privacyLink.setAttribute(
-        "href",
-        `${
-            window.location.origin === "https://sirjamo1.github.io"
-                ? "/AT3_Website_Howells_467957957/html/privacy.html"
-                : "../html/privacy.html"
-        }`
-    );
-    privacyLink.appendChild(document.createTextNode("Privacy"));
-    listItemPrivacy.appendChild(privacyLink);
-    navList.appendChild(listItemPrivacy);
+    pageDetails.forEach((page) => {
+        const list = document.createElement("li");
+        const navLink = document.createElement("a");
+        navLink.setAttribute(
+            "href",
+            `${
+                window.location.origin === "https://sirjamo1.github.io"
+                    ? page.githubLink
+                    : page.localPath
+            }`
+        );
+        navLink.appendChild(document.createTextNode(`${page.title}`));
+        if (
+            window.location.pathname === page.githubLink ||
+            window.location.pathname === page.localPath
+        ) {
+            navLink.setAttribute("class", "display-dumbbell");
+        }
+        list.appendChild(navLink);
+        navList.appendChild(list);
+    });
     navContainer.appendChild(navList);
     header.appendChild(navContainer);
-    toggleNavDumbbell();
+    document.addEventListener("click", hideNav);
 };
 createHeader();
 
@@ -218,16 +199,16 @@ const sanitiseInput = (form, e) => {
     form.submit();
 };
 
-const attachFormListener = () => {
+const attachFormSanitiserListener = () => {
     const form = document.getElementById("contact-form");
     if (!!form) form.addEventListener("submit", (e) => sanitiseInput(form, e));
 };
 
-attachFormListener();
+attachFormSanitiserListener();
 
 addListenersToClassButtons();
 const changeFormHelpVideo = () => {
-    const formHelpVideo = document.getElementsByClassName("form-help-video");
+    const formHelpVideo = document.querySelector(".form-help-video");
     const formVideoSource = document.getElementById("form-video-source");
     formVideoSource.setAttribute(
         "src",
@@ -237,18 +218,16 @@ const changeFormHelpVideo = () => {
                 : "../videos/screen-capture-mobile.mp4"
         }`
     );
-    formHelpVideo[0].load();
+    formHelpVideo.load();
 };
 const formQuestionLink = document.getElementsByClassName("form-link");
-formQuestionLink[0].addEventListener("mouseover", () => changeFormHelpVideo());
+if (!!formQuestionLink.length)
+    formQuestionLink[0].addEventListener("mouseover", () =>
+        changeFormHelpVideo()
+    );
 
-//Remove show-mobile-nav class (if it was open when resizing screen)
+// Remove show-mobile-nav class (if it was open when resizing screen)
 window.addEventListener("resize", () => {
-    const navList = document.getElementsByClassName("nav-list");
-    if (
-        document.body.clientWidth >= 500 &&
-        navList[0].classList.contains("show-mobile-nav")
-    ) {
-        navList[0].classList.remove("show-mobile-nav");
-    }
+    const navList = document.querySelector(".nav-list");
+    if (document.body.clientWidth >= 500) hideNav();
 });
