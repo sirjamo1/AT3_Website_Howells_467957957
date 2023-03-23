@@ -1,8 +1,8 @@
 const pageDetails = [
     {
         title: "Home",
-        localPath: "/",
-        ghPagesPath: "/AT3_Website_Howells_467957957/",
+        localPath: "/index.html",
+        ghPagesPath: "/AT3_Website_Howells_467957957/index.html",
     },
     {
         title: "About",
@@ -80,8 +80,8 @@ const createHeader = () => {
             "href",
             `${
                 window.location.origin === "https://sirjamo1.github.io"
-                    ? page.githubLink
-                    : page.localPath
+                    ? `${page.githubLink}`
+                    : `${page.localPath}`
             }`
         );
         navLink.appendChild(document.createTextNode(`${page.title}`));
