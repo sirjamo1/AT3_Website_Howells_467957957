@@ -76,18 +76,18 @@ const createHeader = () => {
     pageDetails.forEach((page) => {
         const list = document.createElement("li");
         const navLink = document.createElement("a");
-        console.log(page.ghPagesPath);
         const hrefPath =
             window.location.origin === "https://sirjamo1.github.io"
                 ? page.githubLink
                 : page.localPath;
 
         navLink.setAttribute("href", hrefPath);
-
         navLink.appendChild(document.createTextNode(`${page.title}`));
+        const pagePathName = window.location.pathname;
+        console.log(pagePathName)
         if (
-            window.location.pathname === page.githubLink ||
-            window.location.pathname === page.localPath
+            pagePathName === page.githubLink ||
+            pagePathName === page.localPath
         ) {
             navLink.setAttribute("class", "display-dumbbell");
         }
