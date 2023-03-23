@@ -76,14 +76,16 @@ const createHeader = () => {
     pageDetails.forEach((page) => {
         const list = document.createElement("li");
         const navLink = document.createElement("a");
+        console.log(page.ghPagesPath)
         navLink.setAttribute(
-            "href",
-            `${
-                window.location.origin === "https://sirjamo1.github.io"
-                    ? `${page.githubLink}`
-                    : `${page.localPath}`
-            }`
+            "href", page.ghPagesPath
+            // `${
+            //     window.location.origin === "https://sirjamo1.github.io"
+            //         ? page.githubLink
+            //         : page.localPath
+            // }`
         );
+
         navLink.appendChild(document.createTextNode(`${page.title}`));
         if (
             window.location.pathname === page.githubLink ||
