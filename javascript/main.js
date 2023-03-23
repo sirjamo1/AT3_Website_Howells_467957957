@@ -1,8 +1,8 @@
 const pageDetails = [
     {
         title: "Home",
-        localPath: "/index.html",
-        ghPagesPath: "/AT3_Website_Howells_467957957/index.html",
+        localPath: "/",
+        ghPagesPath: "/AT3_Website_Howells_467957957/",
     },
     {
         title: "About",
@@ -40,13 +40,13 @@ const createHeader = () => {
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
     const homeLinkHeart = document.createElement("a");
-    console.log(window.location.origin)
+    console.log(window.location.origin);
     homeLinkHeart.setAttribute(
         "href",
         `${
             window.location.origin === "https://sirjamo1.github.io"
-                ? "/AT3_Website_Howells_467957957/index.html"
-                : "/index.html"
+                ? "/AT3_Website_Howells_467957957/"
+                : "/"
         }`
     );
     const heartLogo = document.createElement("span");
@@ -84,7 +84,7 @@ const createHeader = () => {
                     : page.localPath
             }`
         );
-        
+
         navLink.appendChild(document.createTextNode(`${page.title}`));
         if (
             window.location.pathname === page.ghPagesPath ||
