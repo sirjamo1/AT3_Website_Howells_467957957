@@ -251,7 +251,7 @@ body > header nav ul {
     display: none;
     max-width: 130px;
     text-align: center;
-     visibility: hidden;
+    visibility: hidden;
     font-size: 14px;
     opacity: 0;
     transition: 0.2s ease-in;
@@ -265,37 +265,162 @@ body > header nav li a {
     color: black;
     padding: 0px 15px;
     transition: all 1s;
-    -webkit-clip-path: polygon(100% 0, 100% 0, 75% 0, 64% 0, 59% 0, 44% 0, 35% 0, 25% 0, 0 0, 0 0, 0 100%, 0 100%, 25% 100%, 32% 100%, 41% 100%, 60% 100%, 65% 100%, 75% 100%, 100% 100%, 100% 100%);
-clip-path: polygon(100% 0, 100% 0, 75% 0, 64% 0, 59% 0, 44% 0, 35% 0, 25% 0, 0 0, 0 0, 0 100%, 0 100%, 25% 100%, 32% 100%, 41% 100%, 60% 100%, 65% 100%, 75% 100%, 100% 100%, 100% 100%);
+    -webkit-clip-path: polygon(
+        100% 0,
+        100% 0,
+        75% 0,
+        64% 0,
+        59% 0,
+        44% 0,
+        35% 0,
+        25% 0,
+        0 0,
+        0 0,
+        0 100%,
+        0 100%,
+        25% 100%,
+        32% 100%,
+        41% 100%,
+        60% 100%,
+        65% 100%,
+        75% 100%,
+        100% 100%,
+        100% 100%
+    );
+    clip-path: polygon(
+        100% 0,
+        100% 0,
+        75% 0,
+        64% 0,
+        59% 0,
+        44% 0,
+        35% 0,
+        25% 0,
+        0 0,
+        0 0,
+        0 100%,
+        0 100%,
+        25% 100%,
+        32% 100%,
+        41% 100%,
+        60% 100%,
+        65% 100%,
+        75% 100%,
+        100% 100%,
+        100% 100%
+    );
 }
 body > header nav li a:hover {
     background-color: var(--bittersweet-shimmer);
     color: var(--parchment);
     border-radius: 0;
--webkit-clip-path: polygon(100% 10%, 95% 0, 75% 0, 70% 10%, 70% 25%, 30% 25%, 30% 10%, 25% 0, 5% 0, 0 10%, 0 90%, 5% 100%, 25% 100%, 30% 90%, 30% 75%, 70% 75%, 70% 90%, 75% 100%, 96% 100%, 100% 90%);
-clip-path: polygon(100% 10%, 95% 0, 75% 0, 70% 10%, 70% 25%, 30% 25%, 30% 10%, 25% 0, 5% 0, 0 10%, 0 90%, 5% 100%, 25% 100%, 30% 90%, 30% 75%, 70% 75%, 70% 90%, 75% 100%, 96% 100%, 100% 90%);
+    -webkit-clip-path: polygon(
+        100% 10%,
+        95% 0,
+        75% 0,
+        70% 10%,
+        70% 25%,
+        30% 25%,
+        30% 10%,
+        25% 0,
+        5% 0,
+        0 10%,
+        0 90%,
+        5% 100%,
+        25% 100%,
+        30% 90%,
+        30% 75%,
+        70% 75%,
+        70% 90%,
+        75% 100%,
+        96% 100%,
+        100% 90%
+    );
+    clip-path: polygon(
+        100% 10%,
+        95% 0,
+        75% 0,
+        70% 10%,
+        70% 25%,
+        30% 25%,
+        30% 10%,
+        25% 0,
+        5% 0,
+        0 10%,
+        0 90%,
+        5% 100%,
+        25% 100%,
+        30% 90%,
+        30% 75%,
+        70% 75%,
+        70% 90%,
+        75% 100%,
+        96% 100%,
+        100% 90%
+    );
 }
 .show-mobile-nav {
-   /*👉 opacity: 1;👈*/
     visibility: visible;
     display: grid;
-     animation: change-opacity 1s forwards;
+    animation: change-opacity 1s forwards;
 }
 .display-dumbbell {
     background-color: var(--bittersweet-shimmer);
     color: var(--parchment);
     border-radius: 0;
-    -webkit-clip-path: polygon(100% 10%, 95% 0, 75% 0, 70% 10%, 70% 25%, 30% 25%, 30% 10%, 25% 0, 5% 0, 0 10%, 0 90%, 5% 100%, 25% 100%, 30% 90%, 30% 75%, 70% 75%, 70% 90%, 75% 100%, 96% 100%, 100% 90%);
-clip-path: polygon(100% 10%, 95% 0, 75% 0, 70% 10%, 70% 25%, 30% 25%, 30% 10%, 25% 0, 5% 0, 0 10%, 0 90%, 5% 100%, 25% 100%, 30% 90%, 30% 75%, 70% 75%, 70% 90%, 75% 100%, 96% 100%, 100% 90%);
+    -webkit-clip-path: polygon(
+        100% 10%,
+        95% 0,
+        75% 0,
+        70% 10%,
+        70% 25%,
+        30% 25%,
+        30% 10%,
+        25% 0,
+        5% 0,
+        0 10%,
+        0 90%,
+        5% 100%,
+        25% 100%,
+        30% 90%,
+        30% 75%,
+        70% 75%,
+        70% 90%,
+        75% 100%,
+        96% 100%,
+        100% 90%
+    );
+    clip-path: polygon(
+        100% 10%,
+        95% 0,
+        75% 0,
+        70% 10%,
+        70% 25%,
+        30% 25%,
+        30% 10%,
+        25% 0,
+        5% 0,
+        0 10%,
+        0 90%,
+        5% 100%,
+        25% 100%,
+        30% 90%,
+        30% 75%,
+        70% 75%,
+        70% 90%,
+        75% 100%,
+        96% 100%,
+        100% 90%
+    );
 }
 /*👉Home👈*/
 #home-section {
     background-image: url("../images/pexels-lukas-669577.jpg");
     display: grid;
-    grid-row: 1fr 1fr;
 }
 #home-section > article {
     box-shadow: none;
+    justify-self: center;
 }
 .large-logo-container {
     display: grid;
@@ -356,6 +481,9 @@ clip-path: polygon(100% 10%, 95% 0, 75% 0, 70% 10%, 70% 25%, 30% 25%, 30% 10%, 2
 .large-heart::after {
     left: 43px;
     top: 0;
+}
+.large-heart:hover {
+    animation: fast-heart-pump 1s infinite forwards;
 }
 
 #home-section article:nth-child(2) {
@@ -713,7 +841,7 @@ section#privacy-section {
 }
 #privacy-section p,
 #privacy-section li {
-  /*👉  font-size: 0.9em;👈*/
+    font-size: 0.9em;
 }
 #privacy-section ul {
     list-style: circle;
@@ -722,6 +850,7 @@ section#privacy-section {
     flex-direction: column;
     align-items: flex-start;
     justify-self: center;
+    text-align: left;
 }
 /*👉Footer👈*/
 
@@ -732,9 +861,9 @@ footer {
     grid-template-columns: 1fr 1fr;
     justify-content: space-evenly;
     color: white;
-    box-shadow: 0px -4px 4px 0px rgba(0,0,0,0.75);
--webkit-box-shadow: 0px -4px 4px 0px rgba(0,0,0,0.75);
--moz-box-shadow: 0px -4px 4px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.75);
+    -webkit-box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 0px -4px 4px 0px rgba(0, 0, 0, 0.75);
 }
 
 footer div {
@@ -746,8 +875,12 @@ footer div {
 footer p {
     font-size: 10px;
 }
-footer img {
-    max-width: 50px;
+footer div:first-child img {
+    max-width: 45px;
+    height: auto;
+}
+footer div:last-child img {
+    max-width: 20px;
     height: auto;
 }
 footer div:last-child img:hover {
@@ -793,12 +926,12 @@ footer div:last-child img:hover {
         width: 425px;
     }
     .large-logo-container h1 {
-        font-size: 2.1em;
+        font-size: 2em;
         width: 100%;
         text-indent: 50px;
     }
     .large-logo-container h2 {
-        font-size: 1.6em;
+        font-size: 1.5em;
     }
     .large-heart {
         height: 140px;
@@ -818,23 +951,16 @@ footer div:last-child img:hover {
     .large-heart::after {
         left: 69px;
     }
-/*👉    #home-section aside {
-        width: 70%;
-    }👈*/
     /*👉About👈*/
-    section#about-section article {
+    #about-section article {
         max-width: 70%;
         align-self: center;
         justify-self: center;
     }
-    section#about-section article:nth-child(2) {
+    #about-section article:nth-child(2) {
         grid-template-columns: repeat(2, 1fr);
     }
-    section#about-section article:nth-child(2) h1 {
-        justify-self: center;
-        align-self: center;
-    }
-    section#about-section article:nth-child(2) p:nth-child(2) {
+    #about-section article:nth-child(2) p:nth-child(2) {
         grid-column: 1;
         grid-row: 2;
     }
@@ -879,7 +1005,6 @@ footer div:last-child img:hover {
         border-top: 2px solid var(--asparagus);
         border-left: 1px solid var(--asparagus);
         border-right: 1px solid var(--asparagus);
-
         border-radius: 6px 6px 0px 0px;
     }
     fieldset label {
@@ -897,30 +1022,33 @@ footer div:last-child img:hover {
     /*👉Footer👈*/
 
     footer p {
-        font-size: 16px;
+        font-size: 1em;
     }
-    footer img {
-        max-width: 70px;
+    footer div:first-child img {
+        max-width: 65px;
+    }
+    footer div:last-child img {
+        max-width: 35px;
     }
 }
 @media screen and (min-width: 750px) {
     /*👉Header👈*/
     body > header nav li a {
-        font-size: 1.2em;
+        font-size: 1em;
+    }
+    /*👉Home👈*/
+    #home-section aside {
+        max-width: 70%;
+    }
+    #home-section a {
+        font-size: 1.3em;
     }
     /*👉Classes👈*/
     #classes-section article:nth-child(1) ul {
         display: flex;
-        align-items: center;
-        justify-content: center;
     }
     #classes-section article:nth-child(1) ul li {
-        width: 80%;
-        justify-content: center;
-    }
-    /*👉Home👈*/
-    #home-section a {
-        font-size: 1.3em;
+        margin: 4px;
     }
 }
 @media screen and (min-width: 1000px) {
@@ -944,14 +1072,12 @@ footer div:last-child img:hover {
     }
 }
 @keyframes fast-heart-pump {
-    0% {
+    0%,
+    100% {
         transform: scale(100%) rotate(-45deg);
     }
     50% {
         transform: scale(90%) rotate(-45deg);
-    }
-    100% {
-        transform: scale(100%) rotate(-45deg);
     }
 }
 @keyframes change-opacity {

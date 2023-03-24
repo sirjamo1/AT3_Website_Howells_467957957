@@ -25,22 +25,21 @@ const pageDetails = [
         ghPagesPath: "/AT3_Website_Howells_467957957/html/privacy.html",
     },
 ];
-
 const hideNav = () => {
     const navList = document.querySelector(".nav-list");
     if (navList.classList.contains("show-mobile-nav"))
         navList.classList.remove("show-mobile-nav");
 };
+const toggleNavDisplay = (e) => {
+    const navList = document.querySelector(".nav-list");
+    e.stopPropagation();
+    navList.classList.toggle("show-mobile-nav");
+};
 const createHeader = () => {
-    const toggleNavDisplay = (e) => {
-        e.stopPropagation();
-        navList.classList.toggle("show-mobile-nav");
-    };
     const header = document.getElementsByTagName("header")[0];
     const logoContainer = document.createElement("article");
     logoContainer.setAttribute("class", "logo-container");
     const homeLinkHeart = document.createElement("a");
-    console.log(window.location.origin);
     homeLinkHeart.setAttribute(
         "href",
         `${
@@ -99,7 +98,6 @@ const createHeader = () => {
     header.appendChild(navContainer);
     document.addEventListener("click", hideNav);
 };
-createHeader();
 
 const createFooter = () => {
     const footerContainer = document.getElementsByTagName("footer")[0];
@@ -154,7 +152,6 @@ const createFooter = () => {
     rightContainer.appendChild(developerText);
     footerContainer.appendChild(rightContainer);
 };
-createFooter();
 
 const showClassTable = (classesButtons, i) => {
     for (let j = 0; j < classesButtons.length; j += 1) {
@@ -206,9 +203,6 @@ const attachFormSanitiserListener = () => {
     if (!!form) form.addEventListener("submit", (e) => sanitiseInput(form, e));
 };
 
-attachFormSanitiserListener();
-
-addListenersToClassButtons();
 const changeFormHelpVideo = () => {
     const formHelpVideo = document.querySelector(".form-help-video");
     const formVideoSource = document.getElementById("form-video-source");
@@ -222,7 +216,13 @@ const changeFormHelpVideo = () => {
     );
     formHelpVideo.load();
 };
+createHeader();
+createFooter();
+addListenersToClassButtons();
+attachFormSanitiserListener();
+
 const formQuestionLink = document.getElementsByClassName("form-link");
+// Toggle form help video from desktop to mobile
 if (!!formQuestionLink.length)
     formQuestionLink[0].addEventListener("mouseover", () =>
         changeFormHelpVideo()
