@@ -37,7 +37,7 @@ const toggleNavDisplay = (e) => {
 };
 const createHeader = () => {
     const header = document.getElementsByTagName("header")[0];
-    const logoContainer = document.createElement("article");
+    const logoContainer = document.createElement("section");
     logoContainer.setAttribute("class", "logo-container");
     const homeLinkHeart = document.createElement("a");
     homeLinkHeart.setAttribute(

@@ -10,7 +10,7 @@
 <br />
 <div align="center">
   <a href="https://github.com/sirjamo1/AT3_Website_Howells_467957957">
-    <img src="images/mlstrengthfavicon.png" alt="Logo" width="25" height="25">
+    <img src="images/ml-strength-logo.png" alt="Logo" width="25" height="25">
   </a>
 
 <h3 align="center">ML Strength</h3>
@@ -54,8 +54,8 @@
 ## About The Project
 
     General Instructions:
-
-
+<!-- 
+ADD Screenshots after submitting -->
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
