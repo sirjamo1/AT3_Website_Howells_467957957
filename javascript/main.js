@@ -25,15 +25,36 @@ const pageDetails = [
         ghPagesPath: "/AT3_Website_Howells_467957957/html/privacy.html",
     },
 ];
+const removeButtonSpanDumbbell = () => {
+    const menuButton = document.getElementById("menu-button");
+    const menuSpans = menuButton.childNodes;
+    menuSpans.forEach((span, i) => {
+        span.classList.remove(`menu-button-span-${i}`);
+    });
+};
+const toggleMenuSpanDumbbell = () => {
+    const menuButton = document.getElementById("menu-button");
+    const menuSpans = menuButton.childNodes;
+    menuSpans.forEach((span, i) => {
+        if (span.classList.contains(`menu-button-span-${i}`)) {
+            span.classList.remove(`menu-button-span-${i}`);
+        } else {
+            span.classList.add(`menu-button-span-${i}`);
+        }
+    });
+};
 const hideNav = () => {
     const navList = document.querySelector(".nav-list");
-    if (navList.classList.contains("show-mobile-nav"))
+    if (navList.classList.contains("show-mobile-nav")) {
         navList.classList.remove("show-mobile-nav");
+        removeButtonSpanDumbbell();
+    }
 };
 const toggleNavDisplay = (e) => {
     const navList = document.querySelector(".nav-list");
     e.stopPropagation();
     navList.classList.toggle("show-mobile-nav");
+    toggleMenuSpanDumbbell();
 };
 const createHeader = () => {
     const header = document.getElementsByTagName("header")[0];
@@ -66,7 +87,6 @@ const createHeader = () => {
     menuButton.addEventListener("click", (e) => toggleNavDisplay(e));
     for (let i = 0; i < 3; i += 1) {
         const hamburgerSpan = document.createElement("span");
-        hamburgerSpan.addEventListener("click", toggleNavDisplay);
         menuButton.appendChild(hamburgerSpan);
     }
     navContainer.appendChild(menuButton);
