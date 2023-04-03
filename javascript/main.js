@@ -81,6 +81,7 @@ const createHeader = () => {
     logoContainer.appendChild(logoSubTitle);
     header.appendChild(logoContainer);
     const navContainer = document.createElement("nav");
+    navContainer.setAttribute("role", "navigation")
     const menuButton = document.createElement("button");
     menuButton.setAttribute("id", "menu-button");
     menuButton.setAttribute("title", "Open navigation links");
