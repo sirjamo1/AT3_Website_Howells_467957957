@@ -1,3 +1,4 @@
+//Details of pages, helps making nav, (NOTE: 2 paths one for localhost and the other for git hub pages)
 const pageDetails = [
     {
         title: "Home",
@@ -25,6 +26,7 @@ const pageDetails = [
         ghPagesPath: "/AT3_Website_Howells_467957957/html/privacy.html",
     },
 ];
+//Removes dumbbell animation to the span elements.
 const removeButtonSpanDumbbell = () => {
     const menuButton = document.getElementById("menu-button");
     const menuSpans = menuButton.childNodes;
@@ -32,6 +34,7 @@ const removeButtonSpanDumbbell = () => {
         span.classList.remove(`menu-button-span-${i}`);
     });
 };
+//Runs dumbbell animation to the span elements.
 const toggleMenuSpanDumbbell = () => {
     const menuButton = document.getElementById("menu-button");
     const menuSpans = menuButton.childNodes;
@@ -43,6 +46,7 @@ const toggleMenuSpanDumbbell = () => {
         }
     });
 };
+//Hide navigation
 const hideNav = () => {
     const navList = document.querySelector(".nav-list");
     if (navList.classList.contains("show-mobile-nav")) {
@@ -50,14 +54,16 @@ const hideNav = () => {
         removeButtonSpanDumbbell();
     }
 };
+//Show/hide navigation menu (also runs dumbbell animation to the span elements)
 const toggleNavDisplay = (e) => {
     const navList = document.querySelector(".nav-list");
     e.stopPropagation();
     navList.classList.toggle("show-mobile-nav");
     toggleMenuSpanDumbbell();
 };
+//Creates a dynamic Header with nav across multiply pages
 const createHeader = () => {
-       const header = document.getElementById("page-header");
+    const header = document.getElementById("page-header");
     const logoContainer = document.createElement("section");
     logoContainer.setAttribute("class", "logo-container");
     const homeLinkHeart = document.createElement("a");
@@ -81,7 +87,7 @@ const createHeader = () => {
     logoContainer.appendChild(logoSubTitle);
     header.appendChild(logoContainer);
     const navContainer = document.createElement("nav");
-    navContainer.setAttribute("role", "navigation")
+    navContainer.setAttribute("role", "navigation");
     const menuButton = document.createElement("button");
     menuButton.setAttribute("id", "menu-button");
     menuButton.setAttribute("title", "Open navigation links");
@@ -119,7 +125,7 @@ const createHeader = () => {
     header.appendChild(navContainer);
     document.addEventListener("click", hideNav);
 };
-
+//Creates a dynamic Footer across multiply pages.
 const createFooter = () => {
     const footerContainer = document.getElementById("page-footer");
     const leftContainer = document.createElement("div");
@@ -173,7 +179,7 @@ const createFooter = () => {
     rightContainer.appendChild(developerText);
     footerContainer.appendChild(rightContainer);
 };
-
+//Adds and removes classes from elements to show the correct classes table and classes button.
 const showClassTable = (classesButtons, i) => {
     for (let j = 0; j < classesButtons.length; j += 1) {
         classesButtons[j].classList.remove("classes-button-selected");
@@ -188,6 +194,7 @@ const showClassTable = (classesButtons, i) => {
     );
     tableContainer[0].classList.toggle("show-classes-table");
 };
+// Adds click listeners to classes buttons (on classes.html page).
 const addListenersToClassButtons = () => {
     const classesButtons = document.getElementsByClassName("classes-button");
     for (let i = 0; i < classesButtons.length; i += 1) {
@@ -196,13 +203,15 @@ const addListenersToClassButtons = () => {
         );
     }
 };
-
-function sanitiseString(str) {
+//Sanitises string inputs.
+const sanitiseString = (str) => {
     return str.replace(/</g, "&lt;").replace(/>/g, "&gt;");
-}
-function sanitiseNumber(num) {
+};
+//Sanitises number inputs.
+const sanitiseNumber = (num) => {
     return num.replace(/[^0-9]/g, "");
-}
+};
+// Get's form inputs values and runs them through the above sanitisers before submitting the form.
 const sanitiseInput = (form, e) => {
     e.preventDefault();
     const inputs = form.querySelectorAll("input, textarea, select");
@@ -218,12 +227,12 @@ const sanitiseInput = (form, e) => {
     });
     form.submit();
 };
-
+//Add listener to form.
 const attachFormSanitiserListener = () => {
     const form = document.getElementById("contact-form");
     if (!!form) form.addEventListener("submit", (e) => sanitiseInput(form, e));
 };
-
+//Changes the form help video to the appropriate video.
 const changeFormHelpVideo = () => {
     const formHelpVideo = document.querySelector(".form-help-video");
     const formVideoSource = document.getElementById("form-video-source");
