@@ -57,7 +57,7 @@ const toggleNavDisplay = (e) => {
     toggleMenuSpanDumbbell();
 };
 const createHeader = () => {
-    const header = document.getElementsByTagName("header")[0];
+       const header = document.getElementById("page-header");
     const logoContainer = document.createElement("section");
     logoContainer.setAttribute("class", "logo-container");
     const homeLinkHeart = document.createElement("a");
@@ -121,7 +121,7 @@ const createHeader = () => {
 };
 
 const createFooter = () => {
-    const footerContainer = document.getElementsByTagName("footer")[0];
+    const footerContainer = document.getElementById("page-footer");
     const leftContainer = document.createElement("div");
     const companyText = document.createElement("p");
     companyText.innerHTML = `ML Strength &copy ${new Date().getFullYear()}`;
