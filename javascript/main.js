@@ -226,7 +226,7 @@ const sanitiseInputs = (form) => {
     });
     form.submit();
 };
-//Runs over required form inputs to check values are correct then sends them all off to be sanitised and submitted.
+//Runs over required form inputs to check values are correct then sends all inputs off to be sanitised and submitted.
 const checkFormValidity = (form, e) => {
     e.preventDefault();
     const nameInput = document.getElementById("name");
