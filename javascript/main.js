@@ -1,4 +1,4 @@
-//Details of pages, helps making nav, (NOTE: 2 paths one for localhost and the other for git hub pages)
+//Details of pages, helps making nav, (NOTE: 2 paths, one for localhost and the other for github pages)
 const pageDetails = [
     {
         title: "Home",
@@ -26,7 +26,7 @@ const pageDetails = [
         ghPagesPath: "/AT3_Website_Howells_467957957/html/privacy.html",
     },
 ];
-//Removes dumbbell animation to the span elements.
+//Removes dumbbell animation to the nav span elements.
 const removeButtonSpanDumbbell = () => {
     const menuButton = document.getElementById("menu-button");
     const menuSpans = menuButton.childNodes;
@@ -34,7 +34,7 @@ const removeButtonSpanDumbbell = () => {
         span.classList.remove(`menu-button-span-${i}`);
     });
 };
-//Runs dumbbell animation to the span elements.
+//Runs dumbbell animation to the nav span elements.
 const toggleMenuSpanDumbbell = () => {
     const menuButton = document.getElementById("menu-button");
     const menuSpans = menuButton.childNodes;
@@ -46,7 +46,7 @@ const toggleMenuSpanDumbbell = () => {
         }
     });
 };
-//Hide navigation
+//Hide navigation menu (on mobile)
 const hideNav = () => {
     const navList = document.querySelector(".nav-list");
     if (navList.classList.contains("show-mobile-nav")) {
@@ -54,7 +54,7 @@ const hideNav = () => {
         removeButtonSpanDumbbell();
     }
 };
-//Show/hide navigation menu (also runs dumbbell animation to the span elements)
+//Show/hide navigation menu (on mobile), (also runs dumbbell animation to the span elements)
 const toggleNavDisplay = (e) => {
     const navList = document.querySelector(".nav-list");
     e.stopPropagation();
@@ -212,8 +212,7 @@ const sanitiseNumber = (num) => {
     return num.replace(/[^0-9]/g, "");
 };
 // Get's form inputs values and runs them through the above sanitisers before submitting the form.
-const sanitiseInput = (form, e) => {
-    e.preventDefault();
+const sanitiseInputs = (form) => {
     const inputs = form.querySelectorAll("input, textarea, select");
     inputs.forEach((input) => {
         const value = input.value.trim();
@@ -227,10 +226,69 @@ const sanitiseInput = (form, e) => {
     });
     form.submit();
 };
+//Runs over required form inputs to check values are correct then sends them all off to be sanitised and submitted.
+const checkFormValidity = (form, e) => {
+    e.preventDefault();
+    const nameInput = document.getElementById("name");
+    const nameError = document.getElementById("name-error");
+    if (nameInput.validity.valueMissing) {
+        nameError.textContent = "Please enter your name.";
+    } else if (nameInput.validity.patternMismatch) {
+        nameError.textContent =
+            "Please enter a valid name (only letters from a-Z and spaces allowed).";
+    } else {
+        nameError.textContent = "";
+    }
+    const emailInput = document.getElementById("email");
+    const emailError = document.getElementById("email-error");
+    if (emailInput.validity.valueMissing) {
+        emailError.textContent = "Please enter your email.";
+    } else if (emailInput.validity.typeMismatch) {
+        emailError.textContent = "Please enter a valid email.";
+    } else {
+        emailError.textContent = "";
+    }
+    const mobileInput = document.getElementById("mobile");
+    const mobileError = document.getElementById("mobile-error");
+    if (mobileInput.validity.valueMissing) {
+        mobileError.textContent = "Please enter your mobile.";
+    } else if (mobileInput.validity.patternMismatch) {
+        mobileError.textContent =
+            "Please enter a valid Australian mobile number.";
+    } else {
+        mobileError.textContent = "";
+    }
+    const ageInput = document.getElementById("age");
+    const ageError = document.getElementById("age-error");
+    if (ageInput.validity.valueMissing) {
+        ageError.textContent = "Please enter your age.";
+    } else if (ageInput.value > 116 || ageInput < 16) {
+        ageError.textContent = "Please enter a number between 12 and 116.";
+    } else {
+        ageError.textContent = "";
+    }
+    const postcodeInput = document.getElementById("postcode");
+    const postcodeError = document.getElementById("postcode-error");
+    if (postcodeInput.validity.valueMissing) {
+        postcodeError.textContent = "Please enter your postcode.";
+    } else if (
+        postcodeInput.value.length !== 4 ||
+        postcodeInput.validity.patternMismatch
+    ) {
+        postcodeError.textContent =
+            "Please enter a valid Australian postcode (4 digits)";
+    } else {
+        postcodeError.textContent = "";
+    }
+    if (form.checkValidity()) {
+        sanitiseInputs(form);
+    }
+};
 //Add listener to form.
-const attachFormSanitiserListener = () => {
+const attachFormSubmitListener = () => {
     const form = document.getElementById("contact-form");
-    if (!!form) form.addEventListener("submit", (e) => sanitiseInput(form, e));
+    if (!!form)
+        form.addEventListener("submit", (e) => checkFormValidity(form, e));
 };
 //Changes the form help video to the appropriate video.
 const changeFormHelpVideo = () => {
@@ -249,7 +307,7 @@ const changeFormHelpVideo = () => {
 createHeader();
 createFooter();
 addListenersToClassButtons();
-attachFormSanitiserListener();
+attachFormSubmitListener();
 
 const formQuestionLink = document.getElementsByClassName("form-link");
 // Toggle form help video from desktop to mobile

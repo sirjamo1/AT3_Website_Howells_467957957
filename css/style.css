@@ -1026,7 +1026,11 @@ button[type="reset"]:hover {
     -webkit-box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
     box-shadow: 0px 10px 20px 5px rgba(0, 0, 0, 0.5);
 }
-
+form .error {
+    color: red;
+    text-align: center;
+    font-size: 0.8em;
+}
 .privacy-question-container {
     display: -webkit-box;
     display: -ms-flexbox;
